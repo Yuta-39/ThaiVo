@@ -27,3 +27,6 @@ dist-ssr
 brain/
 *.bak
 
+# Environment variables (contains secret API keys - never commit)
+.env
+.env.local
