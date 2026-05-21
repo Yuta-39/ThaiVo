@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getFireData, canEarnFireToday } from '../utils/fireStorage';
 
 interface Level {
   id: string;
@@ -54,9 +55,27 @@ interface HomeScreenProps {
 }
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
+  const [fireCount, setFireCount] = useState(0);
+  const [canEarn, setCanEarn] = useState(true);
+
+  useEffect(() => {
+    const data = getFireData();
+    setFireCount(data.fireCount);
+    setCanEarn(canEarnFireToday());
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden">
-      {/* Background Glows (タイ伝統の金/琥珀色) */}
+      {/* Fire Streak Badge (Top Right) */}
+      <div className="absolute top-6 right-6 z-20 flex items-center gap-2 px-4 py-2 rounded-2xl border border-amber-500/20 bg-amber-500/5 backdrop-blur-md shadow-[0_0_20px_rgba(245,158,11,0.05)]">
+        <span className={`text-xl ${canEarn ? 'animate-pulse' : ''}`}>🔥</span>
+        <span className="text-white font-black text-sm tracking-wide">{fireCount}</span>
+        {canEarn && (
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping absolute -top-0.5 -right-0.5" />
+        )}
+      </div>
+
+      {/* Background Glows (タイ伝統 of Gold/Amber) */}
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-amber-500/10 blur-3xl" />
         <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-yellow-600/10 blur-3xl" />
