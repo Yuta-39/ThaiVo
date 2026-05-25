@@ -3,8 +3,9 @@ import { vocabulary } from './data/vocabulary';
 import HomeScreen from './components/HomeScreen';
 import WordListScreen from './components/WordListScreen';
 import TypingScreen from './components/TypingScreen';
+import IchiNikkiScreen from './components/IchiNikkiScreen';
 
-type AppView = 'home' | 'wordList' | 'typing';
+type AppView = 'home' | 'wordList' | 'typing' | 'ichiNikki';
 
 const ALL_FILTER_LEVELS = [
   '7回中7回',
@@ -143,6 +144,13 @@ const App: React.FC = () => {
           onChangePracticeLimit={setPracticeLimit}
           hideMeanings={hideMeanings}
           onToggleHideMeanings={setHideMeanings}
+          onStartIchiNikki={() => setView('ichiNikki')}
+        />
+      )}
+      {view === 'ichiNikki' && (
+        <IchiNikkiScreen
+          vocabulary={vocabulary}
+          onBack={() => setView('wordList')}
         />
       )}
       {view === 'typing' && sessionItems[sessionIndex] && (

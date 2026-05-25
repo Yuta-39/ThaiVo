@@ -36,7 +36,8 @@ function analyzeSentenceLocally(
   thaiSentence: string,
   requiredWords: { word: string; meaning: string }[],
   isDirected: boolean,
-  targetJapanese?: string
+  strictness: 'easy' | 'normal' | 'hard',
+  _targetJapanese?: string
 ): EvaluationResult {
   const trimmed = thaiSentence.trim();
   const missingWords: string[] = [];
@@ -60,15 +61,41 @@ function analyzeSentenceLocally(
   if (!hasAllWords) {
     score -= missingWords.length * 20; // 必須単語が抜けている場合は大幅減点
   }
-  if (isTooShort) {
-    score -= 15;
+  
+  if (strictness === 'easy') {
+    // 優しめ：必須単語が入っていれば基本100点
+    if (hasAllWords) {
+      score = 100;
+    }
+  } else if (strictness === 'hard') {
+    // 厳しめ：単語の並べ方、長さ、丁寧さに厳格
+    if (isTooShort) {
+      score -= 30; // 厳しい減点
+    }
+    const hasPolite = trimmed.endsWith('ครับ') || trimmed.endsWith('ค่ะ') || trimmed.endsWith('คะ');
+    if (!hasPolite) {
+      score -= 20; // 丁寧表現がない場合は厳しく減点
+    }
+  } else {
+    // 普通
+    if (isTooShort) {
+      score -= 15;
+    }
   }
+
   if (trimmed.length === 0) {
     score = 0;
   }
 
-  // 70点以上を合格とする
-  const passed = score >= 70 && hasAllWords;
+  // 合格基準の判定
+  let passed = false;
+  if (strictness === 'easy') {
+    passed = score >= 60 && hasAllWords;
+  } else if (strictness === 'hard') {
+    passed = score >= 85 && hasAllWords; // 厳しめは85点以上
+  } else {
+    passed = score >= 70 && hasAllWords; // 普通は70点以上
+  }
 
   // 4. 動的アドバイス（改善点）の生成
   const improvements: string[] = [];
@@ -99,23 +126,55 @@ function analyzeSentenceLocally(
   let correctedSentence: string | undefined = undefined;
 
   if (passed) {
-    summary = isDirected
-      ? '素晴らしい！指定された日本語の意味にしっかり一致した美しいタイ語の文章です。'
-      : '合格です！指定された単語を使って、意味の通じる文章がしっかりと作られています。';
-    grammarFeedback = '基本的な文法（主語 + 動詞 + 目的語）が崩れずに保たれており、語順に問題はありません。';
-    vocabularyUsage = 'すべての必須単語が適切な品詞・役割で正しく文章に組み込まれています。';
-    naturalness = '接続や単語のチョイスが極めて自然で、タイ人にもスムーズに通じる文体です。';
+    if (strictness === 'easy') {
+      summary = '合格です（優しめモード）！必要な単語がすべて含まれています！';
+      grammarFeedback = '必須単語がすべて使用されているため、文法上の最小構成を満たしています。';
+      vocabularyUsage = '指定されたすべての単語が文章に配置されています。';
+      naturalness = 'シンプルな文章構造ですが、言いたいことは十分に伝わります。';
+    } else if (strictness === 'hard') {
+      summary = '素晴らしい！「厳しめ」モードでの合格です！非常に高いタイ語力です。';
+      grammarFeedback = '文法、語順、丁寧助詞の配置がすべて適切で、非常に洗練されたタイ語文です。';
+      vocabularyUsage = 'すべての必須単語が、高度で自然な文脈の中で品詞を活かして配置されています。';
+      naturalness = 'ネイティブのタイ人が日常会話やフォーマルな書き言葉としてそのまま使うレベルの美しさです。';
+    } else {
+      summary = isDirected
+        ? '素晴らしい！指定された日本語の意味にしっかり一致した美しいタイ語の文章です。'
+        : '合格です！指定された単語を使って、意味の通じる文章がしっかりと作られています。';
+      grammarFeedback = '基本的な文法（主語 + 動詞 + 目的語）が崩れずに保たれており、語順に問題はありません。';
+      vocabularyUsage = 'すべての必須単語が適切な品詞・役割で正しく文章に組み込まれています。';
+      naturalness = '接続や単語のチョイスが極めて自然で、タイ人にもスムーズに通じる文体です。';
+    }
   } else {
-    summary = trimmed.length === 0 
-      ? '回答が入力されていません。文章を入力してください。'
-      : '惜しいです！文法や必要な単語の構成にいくつか改善の余地があります。';
-    grammarFeedback = hasAllWords 
-      ? '骨組みはできていますが、少し言葉を補うとタイ語の語順としてより綺麗になります。'
-      : '必須単語が欠けているため、文法構造が不完全になっています。';
-    vocabularyUsage = hasAllWords 
-      ? '単語はすべて使えていますが、接続がやや強引です。'
-      : `指定された単語（${missingWords.join(', ')}）を文中に配置してください。`;
-    naturalness = '少し単語を並べただけのように見えたり、文意が曖昧になっている箇所があります。';
+    if (strictness === 'easy') {
+      summary = trimmed.length === 0 
+        ? '回答が入力されていません。文章を入力してください。'
+        : '惜しいです！必須単語が足りないため不合格です。';
+      grammarFeedback = '必須単語が欠けているため、出題条件を満たしていません。';
+      vocabularyUsage = `指定された単語（${missingWords.join(', ')}）を文章の中に必ず含めてください。`;
+      naturalness = '必要な単語が含まれるように文章を見直してみましょう。';
+    } else if (strictness === 'hard') {
+      summary = '「厳しめ」モード不合格：より正確かつ洗練された構成が必要です。';
+      grammarFeedback = !hasAllWords 
+        ? '必須単語の欠落があります。'
+        : isTooShort 
+          ? '文章のボリュームが不十分です。より具体的な詳細や接続詞を補ってください。'
+          : '文末の丁寧助詞（ครับ/ค่ะ）など、細部の正確さが欠けています。';
+      vocabularyUsage = hasAllWords
+        ? '単語は入っていますが、単なる羅列に近く、豊かな表現にはなっていません。'
+        : `必須単語（${missingWords.join(', ')}）を漏れなく自然に繋げてください。`;
+      naturalness = '語彙の接続部分に不自然さがあるか、表現がやや直訳的で拙いです。';
+    } else {
+      summary = trimmed.length === 0 
+        ? '回答が入力されていません。文章を入力してください。'
+        : '惜しいです！文法や必要な単語の構成にいくつか改善の余地があります。';
+      grammarFeedback = hasAllWords 
+        ? '骨組みはできていますが、少し言葉を補うとタイ語の語順としてより綺麗になります。'
+        : '必須単語が欠けているため、文法構造が不完全になっています。';
+      vocabularyUsage = hasAllWords 
+        ? '単語はすべて使えていますが、接続がやや強引です。'
+        : `指定された単語（${missingWords.join(', ')}）を文中に配置してください。`;
+      naturalness = '少し単語を並べただけのように見えたり、文意が曖昧になっている箇所があります。';
+    }
 
     // 疑似の正しい文章提案
     if (trimmed.length > 0) {
@@ -142,11 +201,12 @@ function analyzeSentenceLocally(
  */
 export async function evaluateRandomMode(
   thaiSentence: string,
-  requiredWords: { word: string; meaning: string }[]
+  requiredWords: { word: string; meaning: string }[],
+  strictness: 'easy' | 'normal' | 'hard'
 ): Promise<EvaluationResult> {
   // 1秒待ってローカル解析結果を返す（ユーザー体験のため少し待ち時間を入れる）
   await new Promise(resolve => setTimeout(resolve, 1000));
-  return analyzeSentenceLocally(thaiSentence, requiredWords, false);
+  return analyzeSentenceLocally(thaiSentence, requiredWords, false, strictness);
 }
 
 /**
@@ -155,8 +215,9 @@ export async function evaluateRandomMode(
 export async function evaluateDirectedMode(
   thaiSentence: string,
   targetJapaneseSentence: string,
-  requiredWords: { word: string; meaning: string }[]
+  requiredWords: { word: string; meaning: string }[],
+  strictness: 'easy' | 'normal' | 'hard'
 ): Promise<EvaluationResult> {
   await new Promise(resolve => setTimeout(resolve, 1000));
-  return analyzeSentenceLocally(thaiSentence, requiredWords, true, targetJapaneseSentence);
+  return analyzeSentenceLocally(thaiSentence, requiredWords, true, strictness, targetJapaneseSentence);
 }

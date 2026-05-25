@@ -67,11 +67,26 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden">
       {/* Fire Streak Badge (Top Right) */}
-      <div className="absolute top-6 right-6 z-20 flex items-center gap-2 px-4 py-2 rounded-2xl border border-amber-500/20 bg-amber-500/5 backdrop-blur-md shadow-[0_0_20px_rgba(245,158,11,0.05)]">
-        <span className={`text-xl ${canEarn ? 'animate-pulse' : ''}`}>🔥</span>
-        <span className="text-white font-black text-sm tracking-wide">{fireCount}</span>
+      <div 
+        className={`
+          absolute top-6 right-6 z-20 flex items-center gap-2.5 px-5 py-2.5 rounded-2xl
+          border bg-gradient-to-r from-amber-500/20 via-orange-500/15 to-red-500/10 backdrop-blur-lg
+          transition-all duration-300
+          ${canEarn 
+            ? 'border-amber-400/50 animate-fire-container shadow-[0_0_25px_rgba(245,158,11,0.2)]' 
+            : 'border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.02)]'
+          }
+        `}
+      >
+        <span className={`text-2xl select-none ${canEarn ? 'animate-flame' : 'opacity-70'}`}>🔥</span>
+        <div className="flex flex-col items-start -space-y-1">
+          <span className="text-white/40 text-[9px] font-black tracking-widest uppercase">STREAK</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-400 font-black text-base tracking-wide">
+            {fireCount} <span className="text-xs text-white/50 font-medium">Days</span>
+          </span>
+        </div>
         {canEarn && (
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping absolute -top-0.5 -right-0.5" />
+          <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping absolute -top-1 -right-1 shadow-[0_0_10px_rgba(245,158,11,0.8)]" />
         )}
       </div>
 

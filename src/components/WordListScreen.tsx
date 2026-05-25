@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import type { VocabularyItem } from '../data/vocabulary';
+import { getFireData, canEarnFireToday } from '../utils/fireStorage';
 
 interface WordListScreenProps {
   items: VocabularyItem[];
@@ -18,6 +19,7 @@ interface WordListScreenProps {
   onChangePracticeLimit: (limit: number | 'all') => void;
   hideMeanings: boolean;
   onToggleHideMeanings: (val: boolean) => void;
+  onStartIchiNikki: () => void;
 }
 
 const FILTER_LEVELS = [
@@ -89,7 +91,24 @@ const WordListScreen: React.FC<WordListScreenProps> = ({
   onChangePracticeLimit,
   hideMeanings,
   onToggleHideMeanings,
+  onStartIchiNikki,
 }) => {
+  const [fireCount, setFireCount] = useState(0);
+  const [canEarn, setCanEarn] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const PAGE_SIZE = 500;
+
+  useEffect(() => {
+    const data = getFireData();
+    setFireCount(data.fireCount);
+    setCanEarn(canEarnFireToday());
+  }, []);
+
+  // フィルター変更時にページを1にリセット
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilters]);
+
   // フィルタのトグル処理
   const handleToggleFilter = (level: string) => {
     if (selectedFilters.includes(level)) {
@@ -110,6 +129,11 @@ const WordListScreen: React.FC<WordListScreenProps> = ({
   const filteredItems = items
     .map((item, originalIndex) => ({ ...item, originalIndex }))
     .filter((item) => selectedFilters.includes(item.frequency));
+
+  const totalPages = Math.ceil(filteredItems.length / PAGE_SIZE);
+  const activePage = Math.min(Math.max(1, currentPage), totalPages || 1);
+  const startIndex = (activePage - 1) * PAGE_SIZE;
+  const paginatedItems = filteredItems.slice(startIndex, startIndex + PAGE_SIZE);
 
   return (
     <div className="min-h-screen flex flex-col items-center relative overflow-hidden px-8 py-10">
@@ -138,8 +162,27 @@ const WordListScreen: React.FC<WordListScreenProps> = ({
             ホームへ戻る
           </button>
 
-          <div className="px-8 py-5 rounded-2xl bg-white/5 border border-white/10 text-white/80 font-extrabold text-xl">
-            {levelLabel} 単語一覧
+          <div className="flex items-center gap-4">
+            {/* Fire Streak Badge */}
+            <div 
+              className={`
+                flex items-center gap-2 px-4 py-3.5 rounded-2xl border backdrop-blur-md transition-all duration-300
+                ${canEarn 
+                  ? 'border-amber-400/50 animate-fire-container shadow-[0_0_20px_rgba(245,158,11,0.15)] bg-amber-500/10' 
+                  : 'border-white/10 bg-white/5 shadow-[0_0_10px_rgba(255,255,255,0.01)]'
+                }
+              `}
+            >
+              <span className={`text-xl select-none ${canEarn ? 'animate-flame' : 'opacity-70'}`}>🔥</span>
+              <span className="text-white/40 text-[9px] font-black tracking-widest uppercase hidden sm:inline">STREAK</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-400 font-black text-base tracking-wide">
+                {fireCount} <span className="text-xs text-white/50 font-medium">Days</span>
+              </span>
+            </div>
+
+            <div className="px-8 py-5 rounded-2xl bg-white/5 border border-white/10 text-white/80 font-extrabold text-xl">
+              {levelLabel} 単語一覧
+            </div>
           </div>
         </header>
 
@@ -335,7 +378,24 @@ const WordListScreen: React.FC<WordListScreenProps> = ({
             </svg>
             スタート
           </button>
-          
+
+          {/* イチ日記ボタン */}
+          <button
+            id="btn-ichi-nikki"
+            onClick={onStartIchiNikki}
+            className="
+              group flex items-center justify-center gap-3 px-10 py-4 rounded-2xl
+              border border-violet-500/30 bg-violet-500/8
+              text-violet-300 font-black text-lg tracking-wide
+              hover:border-violet-400/50 hover:bg-violet-500/15
+              shadow-[0_0_20px_rgba(139,92,246,0.1)] hover:shadow-[0_0_30px_rgba(139,92,246,0.25)]
+              transition-all duration-200 active:scale-95
+            "
+          >
+            <span className="text-2xl">📝</span>
+            イチ日記で練習
+          </button>
+
           {/* ガイドテキスト */}
           {filteredCount > 0 ? (
             <p className="text-white/40 text-base font-semibold tracking-wide">
@@ -349,76 +409,151 @@ const WordListScreen: React.FC<WordListScreenProps> = ({
         </div>
 
         {/* List */}
-        <main className="w-full flex flex-col items-center justify-center">
-          {filteredItems.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-white/40 text-xl font-bold">表示する単語がありません</p>
-            </div>
-          ) : (
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {filteredItems.map((item, index) => {
-                const badgeStyle = getFrequencyBadgeStyle(item.frequency);
-
+        <main id="word-list-main" className="w-full flex flex-col items-center justify-center">
+          {totalPages > 1 && (
+            <div className="flex flex-wrap justify-center items-center gap-2 mb-8 w-full max-w-4xl animate-[fadeIn_0.2s_ease]">
+              {Array.from({ length: totalPages }, (_, i) => {
+                const pageNum = i + 1;
+                const isActive = activePage === pageNum;
+                const pageStart = i * PAGE_SIZE + 1;
+                const pageEnd = Math.min((i + 1) * PAGE_SIZE, filteredItems.length);
+                
                 return (
                   <button
-                    key={item.id}
-                    onClick={() => onSelectWord(item.originalIndex)}
-                    className="
-                      group w-full rounded-2xl border border-white/10 bg-white/4 backdrop-blur-sm
-                      p-5 flex items-center gap-4 text-left
-                      hover:border-amber-500/30 hover:bg-amber-500/5 hover:scale-[1.01]
-                      active:scale-[0.99]
-                      transition-all duration-200
-                    "
+                    key={pageNum}
+                    onClick={() => {
+                      setCurrentPage(pageNum);
+                      const mainElement = document.getElementById('word-list-main');
+                      if (mainElement) {
+                        mainElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }}
+                    className={`
+                      flex flex-col items-center justify-center px-6 py-2.5 rounded-xl border transition-all duration-150 cursor-pointer select-none active:scale-95 min-w-[120px]
+                      ${isActive
+                        ? 'bg-amber-500 border-amber-400 text-slate-950 font-black shadow-lg shadow-amber-500/20'
+                        : 'bg-white/5 border-white/8 text-white/60 hover:bg-white/10 hover:border-white/15 hover:text-white/90'
+                      }
+                    `}
                   >
-                    {/* Number Index */}
-                    <span className="shrink-0 w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white/40 text-lg font-mono group-hover:bg-amber-500/10 group-hover:text-amber-300 transition-all duration-200">
-                      {index + 1}
+                    <span className="text-base font-bold">{pageNum} ページ</span>
+                    <span className={`text-[10px] ${isActive ? 'text-slate-950/60 font-semibold' : 'text-white/30'}`}>
+                      {pageStart} - {pageEnd} 件
                     </span>
-
-                    {/* Word Details */}
-                    <div className="flex-1 min-w-0 flex flex-col justify-center">
-                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
-                        <p
-                          className="text-white text-2.5xl sm:text-3xl font-bold leading-tight whitespace-nowrap"
-                          style={{ fontFamily: "'Trirong', serif" }}
-                        >
-                          {item.word}
-                        </p>
-                        <p className="text-amber-200/50 text-sm sm:text-base font-mono whitespace-nowrap">
-                          {item.pronunciation}
-                        </p>
-                      </div>
-                      
-                      {/* 日本語の意味と頻出度バッジ */}
-                      <div className="flex items-center gap-3 mt-1">
-                        <p className="text-white/50 text-base truncate flex-1">{item.meaning}</p>
-                        
-                        {/* 大きくて見やすい頻出度バッジ */}
-                        <span className={`
-                          shrink-0 px-3 py-1 rounded-lg text-xs font-bold tracking-wider uppercase border
-                          ${badgeStyle}
-                        `}>
-                          {item.frequency}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Play Icon */}
-                    <div className="shrink-0 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-amber-500 group-hover:border-transparent transition-all duration-200">
-                      <svg className="w-4 h-4 text-white/50 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
                   </button>
                 );
               })}
             </div>
           )}
+
+          {filteredItems.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-white/40 text-xl font-bold">表示する単語がありません</p>
+            </div>
+          ) : (
+            <>
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {paginatedItems.map((item, index) => {
+                  const badgeStyle = getFrequencyBadgeStyle(item.frequency);
+
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => onSelectWord(item.originalIndex)}
+                      className="
+                        group w-full rounded-2xl border border-white/10 bg-white/4 backdrop-blur-sm
+                        p-5 flex items-center gap-4 text-left
+                        hover:border-amber-500/30 hover:bg-amber-500/5 hover:scale-[1.01]
+                        active:scale-[0.99]
+                        transition-all duration-200
+                      "
+                    >
+                      {/* Number Index */}
+                      <span className="shrink-0 w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white/40 text-lg font-mono group-hover:bg-amber-500/10 group-hover:text-amber-300 transition-all duration-200">
+                        {startIndex + index + 1}
+                      </span>
+
+                      {/* Word Details */}
+                      <div className="flex-1 min-w-0 flex flex-col justify-center">
+                        <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
+                          <p
+                            className="text-white text-2.5xl sm:text-3xl font-bold leading-tight whitespace-nowrap"
+                            style={{ fontFamily: "'Trirong', serif" }}
+                          >
+                            {item.word}
+                          </p>
+                          <p className="text-amber-200/50 text-sm sm:text-base font-mono whitespace-nowrap">
+                            {item.pronunciation}
+                          </p>
+                        </div>
+                        
+                        {/* 日本語の意味と頻出度バッジ */}
+                        <div className="flex items-center gap-3 mt-1">
+                          <p className="text-white/50 text-base truncate flex-1">{item.meaning}</p>
+                          
+                          {/* 大きくて見やすい頻出度バッジ */}
+                          <span className={`
+                            shrink-0 px-3 py-1 rounded-lg text-xs font-bold tracking-wider uppercase border
+                            ${badgeStyle}
+                          `}>
+                            {item.frequency}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Play Icon */}
+                      <div className="shrink-0 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-amber-500 group-hover:border-transparent transition-all duration-200">
+                        <svg className="w-4 h-4 text-white/50 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* 下部のページネーションコントロール */}
+              {totalPages > 1 && (
+                <div className="flex flex-wrap justify-center items-center gap-2 mt-8 w-full max-w-4xl animate-[fadeIn_0.2s_ease]">
+                  {Array.from({ length: totalPages }, (_, i) => {
+                    const pageNum = i + 1;
+                    const isActive = activePage === pageNum;
+                    const pageStart = i * PAGE_SIZE + 1;
+                    const pageEnd = Math.min((i + 1) * PAGE_SIZE, filteredItems.length);
+                    
+                    return (
+                      <button
+                        key={pageNum}
+                        onClick={() => {
+                          setCurrentPage(pageNum);
+                          const mainElement = document.getElementById('word-list-main');
+                          if (mainElement) {
+                            mainElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }
+                        }}
+                        className={`
+                          flex flex-col items-center justify-center px-6 py-2.5 rounded-xl border transition-all duration-150 cursor-pointer select-none active:scale-95 min-w-[120px]
+                          ${isActive
+                            ? 'bg-amber-500 border-amber-400 text-slate-950 font-black shadow-lg shadow-amber-500/20'
+                            : 'bg-white/5 border-white/8 text-white/60 hover:bg-white/10 hover:border-white/15 hover:text-white/90'
+                          }
+                        `}
+                      >
+                        <span className="text-base font-bold">{pageNum} ページ</span>
+                        <span className={`text-[10px] ${isActive ? 'text-slate-950/60 font-semibold' : 'text-white/30'}`}>
+                          {pageStart} - {pageEnd} 件
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
         </main>
 
         <footer className="w-full mt-10 text-white/20 text-base text-center">
-          表示中: {filteredItems.length} / 全 {items.length} 単語
+          表示中: {startIndex + 1} - {Math.min(startIndex + PAGE_SIZE, filteredItems.length)} 件 / 該当 {filteredItems.length} 件 (全 {items.length} 単語)
         </footer>
       </div>
     </div>
