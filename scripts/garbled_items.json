@@ -1,0 +1,776 @@
+[
+  {
+    "id": 713,
+    "word": "กดราคา",
+    "meaning": "買い叩く、値切る",
+    "pronunciation": "kot-raa-khaa",
+    "frequency": "7回中1回",
+    "exampleTh": "พ่อค้าพยา��ามกดราคาสินค้าจากชาวสวน",
+    "exampleJa": "商人は農家からの商品の価格を買い叩こうとした。"
+  },
+  {
+    "id": 733,
+    "word": "กลิ่น",
+    "meaning": "匂い、香り",
+    "pronunciation": "glìn",
+    "frequency": "7回中1回",
+    "exampleTh": "ดอกไ���้ชนิดนี้มีกลิ่นหอมมากในตอนกลางคืน",
+    "exampleJa": "この花は夜になるととても良い香りがします。"
+  },
+  {
+    "id": 757,
+    "word": "การศึกษา",
+    "meaning": "教育、学習",
+    "pronunciation": "gaar-sʉ̀k-sǎa",
+    "frequency": "7回中1回",
+    "exampleTh": "การศึกษาเป็นสิ่งสำคัญสำหรั��เด็ก",
+    "exampleJa": "教育は子供たちにとって重要です。"
+  },
+  {
+    "id": 761,
+    "word": "กำไร",
+    "meaning": "利益",
+    "pronunciation": "gam-rai",
+    "frequency": "7回中1回",
+    "exampleTh": "บริษัทได้กำไรมากในปีนี้",
+    "exampleJa": "会社は今���、多くの利益を上げました。"
+  },
+  {
+    "id": 766,
+    "word": "กิโลก��ัม",
+    "meaning": "キログラム",
+    "pronunciation": "gi-loo-gram",
+    "frequency": "7回中1回",
+    "exampleTh": "แตงโมผลนี้หนักประมาณสามกิโลกรัม",
+    "exampleJa": "このスイカの重さは約3キログラムです。"
+  },
+  {
+    "id": 770,
+    "word": "กุ้งอบวุ้เส้น",
+    "meaning": "エビと春雨の蒸し焼き",
+    "pronunciation": "gûng-òp-wún-sên",
+    "frequency": "7回中1回",
+    "exampleTh": "���้านนี้ทำกุ้งอบวุ้นเส้นอร่อยมาก",
+    "exampleJa": "この店のエビと春雨の蒸し焼きはとても美味しいです。"
+  },
+  {
+    "id": 773,
+    "word": "เกรง",
+    "meaning": "気兼ねする",
+    "pronunciation": "greng",
+    "frequency": "7回中1回",
+    "exampleTh": "ฉันเกรงว่าจะทำให้เข��ไม่พอใจ",
+    "exampleJa": "彼を不快にさせてしまうのではないかと心配だ。"
+  },
+  {
+    "id": 786,
+    "word": "ขยันขันแข็ง",
+    "meaning": "勤勉な",
+    "pronunciation": "khà-yǎn-khǎn-khǎeng",
+    "frequency": "7回中1回",
+    "exampleTh": "เขาทำงานอย���างขยันขันแข็งทุกวัน",
+    "exampleJa": "彼は毎日とても勤勉に働いている。"
+  },
+  {
+    "id": 793,
+    "word": "ข้อเท็จจริง",
+    "meaning": "事実",
+    "pronunciation": "kh��̂ɔ-thét-ciŋ",
+    "frequency": "7回中1回",
+    "exampleTh": "ตำรวจกำลังสืบหาข้อเท็จจริงของคดีนี้",
+    "exampleJa": "警察はこの事件の事実を調査しています。"
+  },
+  {
+    "id": 826,
+    "word": "คนขาย",
+    "meaning": "売り手、店員",
+    "pronunciation": "khon-khǎai",
+    "frequency": "7回中1回",
+    "exampleTh": "คนขายลดราคาเสื้อตัวน���้ให้ฉัน",
+    "exampleJa": "店員がこの服を値引きしてくれた。"
+  },
+  {
+    "id": 833,
+    "word": "คล้าย",
+    "meaning": "似ている",
+    "pronunciation": "khláai",
+    "frequency": "7回中1回",
+    "exampleTh": "ลูกสาวหน้าตาคล้���ยแม่มาก",
+    "exampleJa": "娘の顔立ちは母親にとてもよく似ています。"
+  },
+  {
+    "id": 837,
+    "word": "ความเครียด",
+    "meaning": "ストレス",
+    "pronunciation": "khwaam-khrîat",
+    "frequency": "7回中1回",
+    "exampleTh": "การออกกำลังกายช่วยลดความเครียดได้",
+    "exampleJa": "��動はストレスを軽減するのに役立ちます。"
+  },
+  {
+    "id": 841,
+    "word": "ความประมาท",
+    "meaning": "不注意",
+    "pronunciation": "khwaam-pra-màat",
+    "frequency": "7回中1回",
+    "exampleTh": "อุบัติเหตุเกิดขึ้นจากความประมาท",
+    "exampleJa": "事故は不注意から起こりました���"
+  },
+  {
+    "id": 846,
+    "word": "ความระ��ัดระวัง",
+    "meaning": "注意",
+    "pronunciation": "khwaam-ra-mát-ra-wang",
+    "frequency": "7回中1回",
+    "exampleTh": "โปรดขับรถด้วยความระมัดระวัง",
+    "exampleJa": "注意して運転してください。"
+  },
+  {
+    "id": 865,
+    "word": "คำแนะนำ",
+    "meaning": "アドバ���ス、お勧め",
+    "pronunciation": "kham-náe-nam",
+    "frequency": "7回中1回",
+    "exampleTh": "ขอบคุณสำหรับคำแนะนำที่ดีของคุณ",
+    "exampleJa": "あなたの良いアドバイスをありがとうございます。"
+  },
+  {
+    "id": 893,
+    "word": "ง่วง",
+    "meaning": "眠い",
+    "pronunciation": "ngûang",
+    "frequency": "7回中1回",
+    "exampleTh": "ฉันรู้สึกง่วงนอนมากหล���งจากกินข้าว",
+    "exampleJa": "ご飯を食べた後、とても眠くなりました。"
+  },
+  {
+    "id": 902,
+    "word": "จักร",
+    "meaning": "ミシ���",
+    "pronunciation": "chàk",
+    "frequency": "7回中1回",
+    "exampleTh": "แม่ใช้จักรเย็บผ้าเพื่อซ่อมเสื้อผ้า",
+    "exampleJa": "母は服を直すためにミシンを使います。"
+  },
+  {
+    "id": 910,
+    "word": "จ้าง",
+    "meaning": "雇う",
+    "pronunciation": "châang",
+    "frequency": "7回中1回",
+    "exampleTh": "บริษัทกำลังจ้างพนักงานให���่เพิ่ม",
+    "exampleJa": "会社は新入社員を新しく雇おうとしている。"
+  },
+  {
+    "id": 928,
+    "word": "ชมเชย",
+    "meaning": "称賛する、褒める",
+    "pronunciation": "chom-chəei",
+    "frequency": "7回中1回",
+    "exampleTh": "รัฐบาลประกาศชมเชยฮีโร่ที่ช่วยชีวิตคน",
+    "exampleJa": "政府は人命を救ったヒーローを称賛する��発表しました。"
+  },
+  {
+    "id": 933,
+    "word": "ช่อง",
+    "meaning": "チャンネル、窓口、隙間",
+    "pronunciation": "ch��ng",
+    "frequency": "7回中1回",
+    "exampleTh": "กรุณาติดต่อที่ช่องหมายเลขห้า",
+    "exampleJa": "5番窓口にお問い合わせください。"
+  },
+  {
+    "id": 937,
+    "word": "ช่างไฟฟ้า",
+    "meaning": "電気技師、電気工",
+    "pronunciation": "châng-fai-fáa",
+    "frequency": "7回中1回",
+    "exampleTh": "���ราต้องโทรเรียกช่างไฟฟ้ามาซ่อมไฟ",
+    "exampleJa": "電気を修理するために電気技師を呼ぶ必要があります。"
+  },
+  {
+    "id": 941,
+    "word": "ชาวประมง",
+    "meaning": "漁師",
+    "pronunciation": "chaao-pra-mong",
+    "frequency": "7回中1回",
+    "exampleTh": "ชาวประมงอ��กเรือไปหาปลาแต่เช้า",
+    "exampleJa": "漁師は朝早くから魚を捕りに船を出します。"
+  },
+  {
+    "id": 953,
+    "word": "โชคร้าย",
+    "meaning": "運が悪い",
+    "pronunciation": "chôok-ráai",
+    "frequency": "7回中1回",
+    "exampleTh": "วันนี้โชคร้า���ที่ฝนตกหนัก",
+    "exampleJa": "今日は雨が激しく降って運が悪いです。"
+  },
+  {
+    "id": 957,
+    "word": "ช่อมแซม",
+    "meaning": "修理する",
+    "pronunciation": "sɔ̂m-sæm",
+    "frequency": "7回中1回",
+    "exampleTh": "พ่อกำลังช่อมแซมหลังคาบ้าน",
+    "exampleJa": "父は家の屋根を修理して���ます。"
+  },
+  {
+    "id": 962,
+    "word": "แซ็นชื่อ",
+    "meaning": "署名する",
+    "pronunciation": "sen-chʉ̂ʉ",
+    "frequency": "7回中1回",
+    "exampleTh": "เขาแซ็นชื���อในเอกสารสัญญาแล้ว",
+    "exampleJa": "彼はすでに契約書に署名しました。"
+  },
+  {
+    "id": 993,
+    "word": "ตรงกัน",
+    "meaning": "一致する",
+    "pronunciation": "trong-gan",
+    "frequency": "7回中1回",
+    "exampleTh": "ความคิดของเราตรง���ันพอดี",
+    "exampleJa": "私たちの考えがちょうど一致しました。"
+  },
+  {
+    "id": 1017,
+    "word": "ตัวแทน",
+    "meaning": "代表、代理人",
+    "pronunciation": "tua-thaen",
+    "frequency": "7回中1回",
+    "exampleTh": "เขาได้รับเลือกเป็นตัวแทนของห้��ง",
+    "exampleJa": "彼はクラスの代表に選ばれました。"
+  },
+  {
+    "id": 1030,
+    "word": "ตื่นเต้น",
+    "meaning": "興奮する、ワクワクする",
+    "pronunciation": "tʉ̀ʉn-tên",
+    "frequency": "7回中1回",
+    "exampleTh": "ฉันรู้สึ��ตื่นเต้นที่จะได้ไปเที่ยว",
+    "exampleJa": "旅行に行くのが楽しみでワクワクしています。"
+  },
+  {
+    "id": 1033,
+    "word": "ตู้",
+    "meaning": "戸棚",
+    "pronunciation": "tûu",
+    "frequency": "7回中1回",
+    "exampleTh": "หนังสืออยู่ในตู้ไม้ใบนั้��",
+    "exampleJa": "本はその木製の戸棚の中にあります。"
+  },
+  {
+    "id": 1062,
+    "word": "ท้องผูก",
+    "meaning": "便秘する",
+    "pronunciation": "thɔ́ɔng-phùuk",
+    "frequency": "7回中1回",
+    "exampleTh": "ช่วงนี้ฉันท้องผูกบ่อยมาก",
+    "exampleJa": "最���、私はよく便秘になります。"
+  },
+  {
+    "id": 1073,
+    "word": "ท้าย",
+    "meaning": "最後、末尾",
+    "pronunciation": "tháay",
+    "frequency": "7回中1回",
+    "exampleTh": "เขานั่งอยู่แถวหลังสุดท้��ย",
+    "exampleJa": "彼は一番最後の列に座っています。"
+  },
+  {
+    "id": 1078,
+    "word": "ที่เกิด",
+    "meaning": "��生地、発生地",
+    "pronunciation": "thîi-gə̀ət",
+    "frequency": "7回中1回",
+    "exampleTh": "กรุงเทพฯ เป็นที่เกิดของฉัน",
+    "exampleJa": "バンコクは私の生まれた場所です。"
+  },
+  {
+    "id": 1082,
+    "word": "ทุกเช้า",
+    "meaning": "毎朝",
+    "pronunciation": "thúk-cháaw",
+    "frequency": "7回中1回",
+    "exampleTh": "ฉันด��่มกาแฟร้อนทุกเช้า",
+    "exampleJa": "私は毎朝温かいコーヒーを飲みます。"
+  },
+  {
+    "id": 1106,
+    "word": "นอนดึก",
+    "meaning": "夜更かしする",
+    "pronunciation": "nɔɔn-dʉ̀k",
+    "frequency": "7回中1回",
+    "exampleTh": "��ย่านอนดึกนะ เดี๋ยวพรุ่งนี้ตื่นสาย",
+    "exampleJa": "夜更かししないでね、明日寝坊するよ。"
+  },
+  {
+    "id": 1110,
+    "word": "นะ",
+    "meaning": "〜ね、〜よ",
+    "pronunciation": "ná",
+    "frequency": "7回中1回",
+    "exampleTh": "พรุ่งนี้เจอกันที่ส��านีรถไฟนะ",
+    "exampleJa": "明日、駅で会いましょうね。"
+  },
+  {
+    "id": 1133,
+    "word": "แน่นอน",
+    "meaning": "もちろん",
+    "pronunciation": "nâe-nɔɔn",
+    "frequency": "7回中1回",
+    "exampleTh": "ฉันจะไปร่วมงานแต่งงานของคุ��แน่นอน",
+    "exampleJa": "私はもちろんあなたの結婚式に行きます。"
+  },
+  {
+    "id": 1137,
+    "word": "ในระหว่าง",
+    "meaning": "〜の最中に",
+    "pronunciation": "nai-rá-wàang",
+    "frequency": "7回中1回",
+    "exampleTh": "ห้ามใช้โทรศัพท์ในระหว่างเรียน",
+    "exampleJa": "授業中は携帯電話を使用しないで���ださい。"
+  },
+  {
+    "id": 1146,
+    "word": "บันทึก",
+    "meaning": "記録する",
+    "pronunciation": "ban-thʉ́k",
+    "frequency": "7回中1回",
+    "exampleTh": "เขาบันทึกการประชุมไว้ในสมุ���",
+    "exampleJa": "彼は会議の内容をノートに記録しました。"
+  },
+  {
+    "id": 1153,
+    "word": "ปลอด",
+    "meaning": "〜がない",
+    "pronunciation": "plòot",
+    "frequency": "7回中1回",
+    "exampleTh": "โซนนี้เป็นเขตปลอดบ��หรี่",
+    "exampleJa": "このゾーンは禁煙エリアです。"
+  },
+  {
+    "id": 1158,
+    "word": "ป้าย",
+    "meaning": "看板",
+    "pronunciation": "paai",
+    "frequency": "7回中1回",
+    "exampleTh": "กรุณาดูป้ายบอกท��งตรงนั้น",
+    "exampleJa": "あそこの案内標識を見てください。"
+  },
+  {
+    "id": 1167,
+    "word": "เป็นห่���ง",
+    "meaning": "心配する",
+    "pronunciation": "pen-hùuang",
+    "frequency": "7回中1回",
+    "exampleTh": "แม่เป็นห่วงลูกที่เดินทางคนเดียว",
+    "exampleJa": "母は一人で旅をする子供を心配しています。"
+  },
+  {
+    "id": 1173,
+    "word": "เป้าหมาย",
+    "meaning": "目標、目的",
+    "pronunciation": "pâo-mǎai",
+    "frequency": "7回中1回",
+    "exampleTh": "เป้���หมายของฉันคือการเรียนภาษาไทย",
+    "exampleJa": "私の目標はタイ語を学ぶことです。"
+  },
+  {
+    "id": 1181,
+    "word": "ผสม",
+    "meaning": "混ぜる",
+    "pronunciation": "phà-sǒm",
+    "frequency": "7回中1回",
+    "exampleTh": "กรุณาผสมน้ำร้อนกับน้ำเย็นให้���ข้ากัน",
+    "exampleJa": "お湯と冷水を混ぜ合わせてください。"
+  },
+  {
+    "id": 1185,
+    "word": "ผิดหวัง",
+    "meaning": "がっかりする",
+    "pronunciation": "phìt-wǎng",
+    "frequency": "7回中1回",
+    "exampleTh": "ฉันรู้สึกผิดหวังที่สอบไม่ผ่าน",
+    "exampleJa": "試験に合格できなくてがっかりしま���た。"
+  },
+  {
+    "id": 1189,
+    "word": "ผู้โดยสาร",
+    "meaning": "乗客",
+    "pronunciation": "phûu-dooi-sǎan",
+    "frequency": "7回中1回",
+    "exampleTh": "ผู้โดยสารทุกคนต้องรัดเข็มขัดนิรภัย",
+    "exampleJa": "すべての乗客はシートベルトを着���しなければなりません。"
+  },
+  {
+    "id": 1237,
+    "word": "ฟรี",
+    "meaning": "無料の",
+    "pronunciation": "frii",
+    "frequency": "7回中1回",
+    "exampleTh": "เด็กอายุต���ำกว่าห้าขวบเข้าชมฟรี",
+    "exampleJa": "5歳未満の子供は入場無料です。"
+  },
+  {
+    "id": 1241,
+    "word": "ฟิตเนส",
+    "meaning": "フィットネス、ジム",
+    "pronunciation": "fít-nét",
+    "frequency": "7回中1回",
+    "exampleTh": "ฉันไปออกกำลังกายที่ฟิตเนสทุกเย็น",
+    "exampleJa": "私���毎晩フィットネスジムに運動しに行きます。"
+  },
+  {
+    "id": 1257,
+    "word": "มอเตอร์ไซค์",
+    "meaning": "バイク",
+    "pronunciation": "mɔɔ-tee-sai",
+    "frequency": "7回中1回",
+    "exampleTh": "เขาขี่มอเตอร์ไซค์ไปทำงานทุกวัน",
+    "exampleJa": "彼は毎日バイクで仕事に行���ます。"
+  },
+  {
+    "id": 1266,
+    "word": "มัธยม",
+    "meaning": "中等教育",
+    "pronunciation": "mát-thá-yom",
+    "frequency": "7回中1回",
+    "exampleTh": "น้องชายของฉันเรียนอ���ู่ชั้นมัธยม",
+    "exampleJa": "私の弟は中等学校に通っています。"
+  },
+  {
+    "id": 1270,
+    "word": "มาเลเซีย",
+    "meaning": "マレーシア",
+    "pronunciation": "maa-lee-sia",
+    "frequency": "7回中1回",
+    "exampleTh": "ประเทศมาเลเซียอยู่ทางใต้��องไทย",
+    "exampleJa": "マレーシアはタイの南にあります。"
+  },
+  {
+    "id": 1281,
+    "word": "เมเปิ้ล",
+    "meaning": "メープル",
+    "pronunciation": "mee-pə̂n",
+    "frequency": "7回中1回",
+    "exampleTh": "ใบเมเปิ้ลเปลี่ยนเป็นสีแดงในฤดูใบไม้ร่วง",
+    "exampleJa": "秋になるとメー��ルの葉が赤く変わります。"
+  },
+  {
+    "id": 1286,
+    "word": "เมืองหลว���",
+    "meaning": "首都",
+    "pronunciation": "mʉʉang-lǔang",
+    "frequency": "7回中1回",
+    "exampleTh": "กรุงเทพฯ เป็นเมืองหลวงของประเทศไทย",
+    "exampleJa": "バンコクはタイの首都です。"
+  },
+  {
+    "id": 1297,
+    "word": "ไม่ว่าจะเป็น",
+    "meaning": "〜であろうと",
+    "pronunciation": "mâi-wâa-c��-pen",
+    "frequency": "7回中1回",
+    "exampleTh": "ไม่ว่าจะเป็นใครก็ต้องปฏิบัติตามกฎ",
+    "exampleJa": "誰であろうと規則に従わなければなりません。"
+  },
+  {
+    "id": 1313,
+    "word": "ยิ่งกว่า",
+    "meaning": "〜以上に、さらに",
+    "pronunciation": "yîng-kwàa",
+    "frequency": "7回中1回",
+    "exampleTh": "เขารักเธอยิ่งกว่าสิ่งใด",
+    "exampleJa": "彼は何よ���も彼女を愛している。"
+  },
+  {
+    "id": 1322,
+    "word": "เยี่ยม",
+    "meaning": "訪れる、見舞う",
+    "pronunciation": "yîam",
+    "frequency": "7回中1回",
+    "exampleTh": "ฉันไปเยี่ยมคุณยายที่โรงพยา���าล",
+    "exampleJa": "私は病院におばあちゃんを見舞いに行った。"
+  },
+  {
+    "id": 1337,
+    "word": "รวมตัว",
+    "meaning": "集まる",
+    "pronunciation": "ruam-tua",
+    "frequency": "7回中1回",
+    "exampleTh": "พวกเราจะรวมตัวกันที��หน้าสถานีรถไฟ",
+    "exampleJa": "私たちは駅の前に集まります。"
+  },
+  {
+    "id": 1341,
+    "word": "รสชาติ",
+    "meaning": "味",
+    "pronunciation": "rót-châat",
+    "frequency": "7回中1回",
+    "exampleTh": "อาหารไทยร้านนี้มีร��ชาติอร่อยมาก",
+    "exampleJa": "この店のタイ料理はとても美味しい味がします。"
+  },
+  {
+    "id": 1345,
+    "word": "รอบคอบ",
+    "meaning": "慎重な",
+    "pronunciation": "rôop-khôop",
+    "frequency": "7回中1回",
+    "exampleTh": "คุณต้องคิดให้รอบคอบก่อนตัดสินใจ",
+    "exampleJa": "決断する前に慎重に��えなければなりません。"
+  },
+  {
+    "id": 1357,
+    "word": "รางวัล",
+    "meaning": "賞、賞品",
+    "pronunciation": "raang-wan",
+    "frequency": "7回中1回",
+    "exampleTh": "เขาได้ร���บรางวัลชนะเลิศในการประกวด",
+    "exampleJa": "彼はコンテストで最優秀賞を受賞した。"
+  },
+  {
+    "id": 1361,
+    "word": "ร้านอาหาร",
+    "meaning": "レストラン、飲食店",
+    "pronunciation": "ráan-aa-hǎan",
+    "frequency": "7回中1回",
+    "exampleTh": "ร้านอาหารนี้ขายอาหารไทยอร่อย��าก",
+    "exampleJa": "このレストランはタイ料理がとても美味しいです。"
+  },
+  {
+    "id": 1388,
+    "word": "ลงข่าว",
+    "meaning": "報道する、掲載する",
+    "pronunciation": "loŋ-khàaw",
+    "frequency": "7回中1回",
+    "exampleTh": "หนังสือพิมพ์ลงข่าวเกี่ยวกับอุบัติเหตุเมื่อวานนี้",
+    "exampleJa": "新聞は昨日の事故についてのニ��ースを掲載した。"
+  },
+  {
+    "id": 1398,
+    "word": "ลายเซ��น",
+    "meaning": "サイン",
+    "pronunciation": "laai-sen",
+    "frequency": "7回中1回",
+    "exampleTh": "กรุณาเขียนลายเซ็นของคุณตรงนี้",
+    "exampleJa": "ここにあなたのサインを書いてください。"
+  },
+  {
+    "id": 1402,
+    "word": "ลิฟต์",
+    "meaning": "エレベーター",
+    "pronunciation": "líp",
+    "frequency": "7回中1回",
+    "exampleTh": "เราควรขึ้นลิ���ต์ไปที่ชั้นห้าสิบ",
+    "exampleJa": "私たちはエレベーターで50階に上がるべきだ。"
+  },
+  {
+    "id": 1421,
+    "word": "วันลอยกระทง",
+    "meaning": "ロイクラトンの日",
+    "pronunciation": "wan-loi-grà-thong",
+    "frequency": "7回中1回",
+    "exampleTh": "วันลอยกระทงปีนี้ตรงกับวันเพ็ญเดือนสิ���สอง",
+    "exampleJa": "今年のロイクラトンの日は12月の満月の日に当たります。"
+  },
+  {
+    "id": 1429,
+    "word": "ว่าไง",
+    "meaning": "どう？",
+    "pronunciation": "wâa-ngai",
+    "frequency": "7回中1回",
+    "exampleTh": "ว่าไงนะ พูดอีกทีได้ไหม ไม่ค่อยได้ยิน",
+    "exampleJa": "何だって？もう一度言ってくれる���よく聞こえなかった。"
+  },
+  {
+    "id": 1441,
+    "word": "วุ้นเส้น",
+    "meaning": "春雨",
+    "pronunciation": "wún-sên",
+    "frequency": "7回中1回",
+    "exampleTh": "แม่ท���แกงจืดวุ้นเส้นใส่หมูสับ",
+    "exampleJa": "母は豚ひき肉入りの春雨スープを作った。"
+  },
+  {
+    "id": 1449,
+    "word": "สกปรก",
+    "meaning": "汚い",
+    "pronunciation": "sòk-ka-pròk",
+    "frequency": "7回中1回",
+    "exampleTh": "อย่าเอามือที่สกปรกไปจับอาหารกิน",
+    "exampleJa": "汚い手で食べ物を掴んで食べないで���ださい。"
+  },
+  {
+    "id": 1453,
+    "word": "ส่งมา",
+    "meaning": "送ってくる",
+    "pronunciation": "sòng maa",
+    "frequency": "7回中1回",
+    "exampleTh": "กรุณาส่���เอกสารมาให้ฉันทางอีเมล",
+    "exampleJa": "メールで書類を送ってください。"
+  },
+  {
+    "id": 1457,
+    "word": "สดใส",
+    "meaning": "明るい、生き生きした",
+    "pronunciation": "sòt-sǎi",
+    "frequency": "7回中1回",
+    "exampleTh": "วันนี้ท้องฟ้าแจ่มใสและสดใสมาก",
+    "exampleJa": "今日は空が晴れ渡り、とても明る���。"
+  },
+  {
+    "id": 1470,
+    "word": "ส้มโ���",
+    "meaning": "ポメロ、ザボン",
+    "pronunciation": "sôm-oo",
+    "frequency": "7回中1回",
+    "exampleTh": "ส้มโอของไทยมีรสชาติหวานอมเปรี้ยวอร่อย",
+    "exampleJa": "タイのポメロは甘酸っぱくて美味しい。"
+  },
+  {
+    "id": 1493,
+    "word": "สาว",
+    "meaning": "若い女性",
+    "pronunciation": "sǎao",
+    "frequency": "7回中1回",
+    "exampleTh": "เธอเป็นสาวส���ยที่ทำงานเก่งมาก",
+    "exampleJa": "彼女は仕事がとてもできる美しい女性です。"
+  },
+  {
+    "id": 1497,
+    "word": "สื่อ",
+    "meaning": "メディア、媒体",
+    "pronunciation": "sùu",
+    "frequency": "7回中1回",
+    "exampleTh": "สื่อสังคมออนไลน์มีอิทธิพลมากในปัจจุบัน",
+    "exampleJa": "現在、ソーシャルメディア��非常に大きな影響力を持っています。"
+  },
+  {
+    "id": 1517,
+    "word": "หนี",
+    "meaning": "逃げる",
+    "pronunciation": "nǐi",
+    "frequency": "7回中1回",
+    "exampleTh": "ขโมยวิ่งหนีตำรวจไปอย่างรวดเร็ว",
+    "exampleJa": "泥棒は警察���ら素早く逃げ去った。"
+  },
+  {
+    "id": 1526,
+    "word": "หยิบ",
+    "meaning": "手に取る",
+    "pronunciation": "yìp",
+    "frequency": "7回中1回",
+    "exampleTh": "ช่วยหยิบปากกาบนโต๊ะให้หน่อย��รับ",
+    "exampleJa": "机の上のペンを取ってください。"
+  },
+  {
+    "id": 1530,
+    "word": "หลัก",
+    "meaning": "原則、基本",
+    "pronunciation": "làk",
+    "frequency": "7回中1回",
+    "exampleTh": "เราต้องเข้าใจหลักการทำงานของมัน",
+    "exampleJa": "私たちはその��組みの原則を理解しなければならない。"
+  },
+  {
+    "id": 1533,
+    "word": "ห่วง",
+    "meaning": "心配する、気にかける",
+    "pronunciation": "hùang",
+    "frequency": "7回中1回",
+    "exampleTh": "แม่เป็นห่วงสุขภ���พของลูกเสมอ",
+    "exampleJa": "母はいつも子供の健康を心配している。"
+  },
+  {
+    "id": 1546,
+    "word": "หิว",
+    "meaning": "お腹が空く",
+    "pronunciation": "hǐu",
+    "frequency": "7回中1回",
+    "exampleTh": "ตอนนี้หิว��้าวมาก อยากกินราเมน",
+    "exampleJa": "今とてもお腹が空いているので、ラーメンが食べたい。"
+  },
+  {
+    "id": 1553,
+    "word": "เหม็น",
+    "meaning": "臭い",
+    "pronunciation": "měn",
+    "frequency": "7回中1回",
+    "exampleTh": "ขยะพวกนี้ส่งกลิ่นเ��ม็นมาก",
+    "exampleJa": "これらのゴミはとても臭い。"
+  },
+  {
+    "id": 1558,
+    "word": "ให้กั��",
+    "meaning": "〜に与える",
+    "pronunciation": "hâi-gàp",
+    "frequency": "7回中1回",
+    "exampleTh": "ฉันมอบของขวัญชิ้นนี้ให้กับเขา",
+    "exampleJa": "私はこのプレゼントを彼に贈りました。"
+  },
+  {
+    "id": 1562,
+    "word": "ไหม้",
+    "meaning": "燃える、焦げる",
+    "pronunciation": "mâi",
+    "frequency": "7回中1回",
+    "exampleTh": "ฉันได้กลิ่นเหมือนมีอะไรไหม้",
+    "exampleJa": "何か��焦げているような臭いがします。"
+  },
+  {
+    "id": 1577,
+    "word": "โอ",
+    "meaning": "おお",
+    "pronunciation": "oo",
+    "frequency": "7回中1回",
+    "exampleTh": "โอ! สวยงามมากจริงๆ",
+    "exampleJa": "おお！���当にとても美しいですね。"
+  },
+  {
+    "id": 1588,
+    "word": "เบอร์โทรศัพท์",
+    "meaning": "電話番号",
+    "pronunciation": "bəə-thoo-rá-sàp",
+    "frequency": "7回中1回",
+    "exampleTh": "ขอเบอร์โทรศัพท์ของคุณไ��้ติดต่อได้ไหม",
+    "exampleJa": "連絡用に電話番号を教えてもらえますか。"
+  },
+  {
+    "id": 1615,
+    "word": "ประโยค",
+    "meaning": "文、文章",
+    "pronunciation": "prà-yòok",
+    "frequency": "7回中1回",
+    "exampleTh": "ลองแต่งประโยคภาษาไทยด้วยคำนี้ดูสิ",
+    "exampleJa": "この単語を使っ���タイ語の文を作ってみて。"
+  },
+  {
+    "id": 1631,
+    "word": "ออกมา",
+    "meaning": "外へ出てくる",
+    "pronunciation": "òok-maa",
+    "frequency": "7回中1回",
+    "exampleTh": "เขารีบวิ่งออกมาจากบ้านเมื่อได้ยินเสียงเรียก",
+    "exampleJa": "呼び声を聞いて、彼は急いで���から出てきました。"
+  },
+  {
+    "id": 1644,
+    "word": "อาบแดด",
+    "meaning": "日光浴する",
+    "pronunciation": "àap-dàet",
+    "frequency": "7回中1回",
+    "exampleTh": "นักท่องเที่ยวช��บมานอนอาบแดดที่นี่",
+    "exampleJa": "観光客はここで日光浴をして寝るのが好きです。"
+  },
+  {
+    "id": 1652,
+    "word": "อีกด้วย",
+    "meaning": "〜もまた",
+    "pronunciation": "ìik-dûai",
+    "frequency": "7回中1回",
+    "exampleTh": "เขาทั้งฉลาดและใจดีอีกด้วย",
+    "exampleJa": "彼は賢いだけでなく、親切でもあります��"
+  }
+]
