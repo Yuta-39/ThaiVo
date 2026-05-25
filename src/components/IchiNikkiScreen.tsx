@@ -463,6 +463,22 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
             </div>
           </div>
 
+          {/* Directed: target sentence */}
+          {mode === 'directed' && directedPrompt && (
+            <div className="rounded-3xl border border-violet-500/20 bg-violet-500/5 px-8 py-6 backdrop-blur-md">
+              <p className="text-violet-300/60 text-sm font-black tracking-widest uppercase mb-3">出題された日本語（目標の表現）</p>
+              <p className="text-white text-2xl font-bold leading-relaxed">{directedPrompt.japaneseSentence}</p>
+            </div>
+          )}
+
+          {/* Required words */}
+          <div className="rounded-3xl border border-white/8 bg-white/3 p-8 backdrop-blur-md">
+            <p className="text-white/40 text-sm font-black tracking-widest uppercase mb-5">出題された指定単語</p>
+            <div className="flex flex-wrap gap-4">
+              {selectedWords.map((w, i) => <WordChip key={w.id} word={w} index={i} />)}
+            </div>
+          </div>
+
           {/* Your sentence */}
           <div className="rounded-3xl border border-white/8 bg-white/3 px-8 py-6 backdrop-blur-md">
             <p className="text-white/40 text-sm font-black tracking-widest uppercase mb-3">あなたの回答</p>

@@ -1633,7 +1633,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 181,
     "word": "ตัวเอง",
     "meaning": "自分自身",
-    "pronunciation": "tuaeeŋ",
+    "pronunciation": "tua-eeŋ",
     "frequency": "7回中4回",
     "exampleTh": "เราต้องพัฒนาทักษะของตัวเองอยู่เสมอเพื่อความก้าวหน้า",
     "exampleJa": "進歩するために、私たちは常に自分自身のスキルを向上させなければならない。"
@@ -6826,7 +6826,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 758,
     "word": "การแสดง",
     "meaning": "演技、ショー、公演",
-    "pronunciation": "gaar-sa-daeng",
+    "pronunciation": "gaar-sà-dɛɛng",
     "frequency": "7回中1回",
     "exampleTh": "ผู้ชมชอบการแสดงของเขามาก",
     "exampleJa": "観客は彼の演技がとても気に入りました。"
@@ -6835,7 +6835,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 759,
     "word": "การแสดงพื้นเมือง",
     "meaning": "伝統芸能、郷土芸能",
-    "pronunciation": "gaar-sa-daeng-phʉ́ʉn-mʉang",
+    "pronunciation": "gaar-sà-dɛɛng-phʉ́ʉn-mʉang",
     "frequency": "7回中1回",
     "exampleTh": "นักท่องเที่ยวชอบดูการแสดงพื้นเมือง",
     "exampleJa": "観光客は伝統芸能を見るのが好きです。"
@@ -7006,7 +7006,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 778,
     "word": "แก้ไข",
     "meaning": "解決する",
-    "pronunciation": "gâe-khǎi",
+    "pronunciation": "gɛ̂ɛ-khǎi",
     "frequency": "7回中1回",
     "exampleTh": "เราต้องแก้ไขปัญหานี้โดยเร็ว",
     "exampleJa": "私たちはこの問題を早く解決しなければならない。"
@@ -7015,7 +7015,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 779,
     "word": "แกง",
     "meaning": "カレー",
-    "pronunciation": "gaeng",
+    "pronunciation": "gɛɛng",
     "frequency": "7回中1回",
     "exampleTh": "แม่ทำแกงเผ็ดไก่รสชาติอร่อยมาก",
     "exampleJa": "母が作った鶏肉のレッドカレーはとても美味しい。"
@@ -7024,7 +7024,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 780,
     "word": "แกงจืด",
     "meaning": "すましスープ",
-    "pronunciation": "gaeng-cùet",
+    "pronunciation": "gɛɛng-cùet",
     "frequency": "7回中1回",
     "exampleTh": "แกงจืดเต้าหู้หมูสับดีต่อสุขภาพ",
     "exampleJa": "豆腐と豚ひき肉のすましスープは健康に良い。"
@@ -7033,7 +7033,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 781,
     "word": "แก่งเฒ่า",
     "meaning": "年老いた",
-    "pronunciation": "gàeng-thâo",
+    "pronunciation": "gɛ̀ɛng-thâo",
     "frequency": "7回中1回",
     "exampleTh": "เมื่อคนเราแก่งเฒ่าลงก็ต้องการการดูแล",
     "exampleJa": "人は年老いるとケアが必要になる。"
@@ -7078,7 +7078,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 786,
     "word": "ขยันขันแข็ง",
     "meaning": "勤勉な",
-    "pronunciation": "khà-yǎn-khǎn-khǎeng",
+    "pronunciation": "khà-yǎn-khǎn-khɛ̌ɛng",
     "frequency": "7回中1回",
     "exampleTh": "เขาทำงานอย่างขยันขันแข็งทุกวัน",
     "exampleJa": "彼は毎日とても勤勉に働いている。"
@@ -7483,7 +7483,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 831,
     "word": "ครั้งแรก",
     "meaning": "初めて",
-    "pronunciation": "khráng-râek",
+    "pronunciation": "khráng-rɛ̂ɛk",
     "frequency": "7回中1回",
     "exampleTh": "นี่เป็นครั้งแรกที่ฉันมาเที่ยวญี่ปุ่น",
     "exampleJa": "これは私が日本に旅行に来た初めての機会です。"
@@ -7699,7 +7699,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 855,
     "word": "คะแนน",
     "meaning": "点数、得点",
-    "pronunciation": "kha-naen",
+    "pronunciation": "kha-nɛɛn",
     "frequency": "7回中1回",
     "exampleTh": "เขาได้คะแนนเต็มในการสอบวิชาคณิตศาสตร์",
     "exampleJa": "彼は数学の試験で満点を取りました。"
@@ -7789,7 +7789,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 865,
     "word": "คำแนะนำ",
     "meaning": "アドバイス、お勧め",
-    "pronunciation": "kham-náe-nam",
+    "pronunciation": "kham-nɛ́-nam",
     "frequency": "7回中1回",
     "exampleTh": "ขอบคุณสำหรับคำแนะนำที่ดีของคุณ",
     "exampleJa": "あなたの良いアドバイスをありがとうございます。"
@@ -8833,7 +8833,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 981,
     "word": "เดือนแรก",
     "meaning": "最初の月",
-    "pronunciation": "duan-râek",
+    "pronunciation": "duan-rɛ̂ɛk",
     "frequency": "7回中1回",
     "exampleTh": "เดือนแรกของการทำงานเหนื่อยมาก",
     "exampleJa": "仕事の最初の1ヶ月はとても疲れました。"
@@ -8842,7 +8842,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 982,
     "word": "แด่",
     "meaning": "〜に",
-    "pronunciation": "dàe",
+    "pronunciation": "dɛ̀ɛ",
     "frequency": "7回中1回",
     "exampleTh": "มอบของขวัญชิ้นนี้แด่คุณครู",
     "exampleJa": "この贈り物を先生に捧げます。"
@@ -8851,7 +8851,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 983,
     "word": "แดง",
     "meaning": "赤い",
-    "pronunciation": "daeng",
+    "pronunciation": "dɛɛng",
     "frequency": "7回中1回",
     "exampleTh": "เธอใส่เสื้อสีแดงสวยงามมาก",
     "exampleJa": "彼女は赤い服を着ていてとても美しい。"
@@ -8869,7 +8869,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 985,
     "word": "ได้แก่",
     "meaning": "すなわち",
-    "pronunciation": "dâai-gàe",
+    "pronunciation": "dâai-gɛ̀ɛ",
     "frequency": "7回中1回",
     "exampleTh": "ผลไม้ไทยได้แก่ทุเรียนและมังคุด",
     "exampleJa": "タイの果物にはドリアンやマンゴスチンなどがあります。"
@@ -9067,7 +9067,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1007,
     "word": "ตอบแทน",
     "meaning": "恩返しする",
-    "pronunciation": "tɔ̀ɔp-thaen",
+    "pronunciation": "tɔ̀ɔp-thɛɛn",
     "frequency": "7回中1回",
     "exampleTh": "ฉันอยากตอบแทนบุญคุณพ่อแม่",
     "exampleJa": "私は両親の恩に報いたい。"
@@ -9157,7 +9157,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1017,
     "word": "ตัวแทน",
     "meaning": "代表、代理人",
-    "pronunciation": "tua-thaen",
+    "pronunciation": "tua-thɛɛn",
     "frequency": "7回中1回",
     "exampleTh": "เขาได้รับเลือกเป็นตัวแทนของห้อง",
     "exampleJa": "彼はクラスの代表に選ばれました。"
@@ -9850,7 +9850,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1094,
     "word": "แท้",
     "meaning": "本物の",
-    "pronunciation": "tháe",
+    "pronunciation": "thɛ́ɛ",
     "frequency": "7回中1回",
     "exampleTh": "กระเป๋าใบนี้ทำจากหนังแท้",
     "exampleJa": "このバッグは本革で作られています。"
@@ -9859,7 +9859,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1095,
     "word": "แท็กซี่",
     "meaning": "タクシー",
-    "pronunciation": "tháek-sîi",
+    "pronunciation": "thɛ́k-sîi",
     "frequency": "7回中1回",
     "exampleTh": "ฉันเรียกแท็กซี่เพื่อไปสนามบิน",
     "exampleJa": "私は空港へ行くためにタクシーを呼んだ。"
@@ -10183,7 +10183,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1131,
     "word": "แน่",
     "meaning": "確かな",
-    "pronunciation": "nâe",
+    "pronunciation": "nɛ̂ɛ",
     "frequency": "7回中1回",
     "exampleTh": "ฉันคิดว่าเขาต้องมาที่นี่แน่",
     "exampleJa": "彼はきっとここに来ると思います。"
@@ -10192,7 +10192,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1132,
     "word": "แน่ใจ",
     "meaning": "確信する",
-    "pronunciation": "nâe-chai",
+    "pronunciation": "nɛ̂ɛ-cai",
     "frequency": "7回中1回",
     "exampleTh": "คุณแน่ใจไหมว่าเขาจะมาวันนี้",
     "exampleJa": "彼が今日来るというのは確かですか？"
@@ -10201,7 +10201,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1133,
     "word": "แน่นอน",
     "meaning": "もちろん",
-    "pronunciation": "nâe-nɔɔn",
+    "pronunciation": "nɛ̂ɛ-nɔɔn",
     "frequency": "7回中1回",
     "exampleTh": "ฉันจะไปร่วมงานแต่งงานของคุณแน่นอน",
     "exampleJa": "私はもちろんあなたの結婚式に行きます。"
@@ -10741,7 +10741,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1193,
     "word": "แผน",
     "meaning": "計画、予定",
-    "pronunciation": "phǎen",
+    "pronunciation": "phɛ̌ɛn",
     "frequency": "7回中1回",
     "exampleTh": "เราต้องทำตามแผนที่วางไว้",
     "exampleJa": "私たちは立てた計画に従わなければならない。"
@@ -10750,7 +10750,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1194,
     "word": "แผล",
     "meaning": "傷、怪我",
-    "pronunciation": "phlae",
+    "pronunciation": "phlɛ̌ɛ",
     "frequency": "7回中1回",
     "exampleTh": "เขามีแผลที่หัวเข่าจากการล้ม",
     "exampleJa": "彼は転んで膝に傷ができた。"
@@ -10957,7 +10957,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1217,
     "word": "พันธุ์แท้",
     "meaning": "純血、純粋種",
-    "pronunciation": "phan-tháe",
+    "pronunciation": "phan-thɛ́ɛ",
     "frequency": "7回中1回",
     "exampleTh": "แมวตัวนี้เป็นแมวพันธุ์แท้",
     "exampleJa": "この猫は純血種の猫です。"
@@ -11101,7 +11101,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1233,
     "word": "เพียงแค่",
     "meaning": "ただ〜だけ",
-    "pronunciation": "phiang khâe",
+    "pronunciation": "phiang-khɛ̂ɛ",
     "frequency": "7回中1回",
     "exampleTh": "ฉันต้องการเพียงแค่เวลาพักผ่อนเท่านั้น",
     "exampleJa": "私はただ休む時間だけが欲しい。"
@@ -11119,7 +11119,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1235,
     "word": "แพ้",
     "meaning": "負ける、アレルギーがある",
-    "pronunciation": "pháe",
+    "pronunciation": "phɛ́ɛ",
     "frequency": "7回中1回",
     "exampleTh": "ทีมของเราแพ้ในการแข่งขันเมื่อวานนี้",
     "exampleJa": "私たちのチームは昨日の試合で負けました。"
@@ -11128,7 +11128,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1236,
     "word": "แพ้ยา",
     "meaning": "薬物アレルギー",
-    "pronunciation": "pháe yaa",
+    "pronunciation": "phɛ́ɛ-yaa",
     "frequency": "7回中1回",
     "exampleTh": "คุณมีอาการแพ้ยาอะไรบ้างไหมครับ",
     "exampleJa": "何か薬のアレルギーはありますか？"
@@ -11623,7 +11623,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1291,
     "word": "แม่ค้า",
     "meaning": "女商人、売り子",
-    "pronunciation": "mâe-kháa",
+    "pronunciation": "mɛ̂ɛ-kháa",
     "frequency": "7回中1回",
     "exampleTh": "แม่ค้าคนนี้ขายผลไม้สดและอร่อยมาก",
     "exampleJa": "この女性の商人は新鮮でとても美味しい果物を売っています。"
@@ -11632,7 +11632,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1292,
     "word": "แม่น้ำ",
     "meaning": "川",
-    "pronunciation": "mâe-náam",
+    "pronunciation": "mɛ̂ɛ-náam",
     "frequency": "7回中1回",
     "exampleTh": "แม่น้ำเจ้าพระยาไหลผ่านกรุงเทพมหานคร",
     "exampleJa": "チャオプラヤー川はバンコクを流れています。"
@@ -11641,7 +11641,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1293,
     "word": "แมลง",
     "meaning": "虫、昆虫",
-    "pronunciation": "ma-laeng",
+    "pronunciation": "ma-lɛɛng",
     "frequency": "7回中1回",
     "exampleTh": "มีแมลงหลายชนิดบินอยู่ในสวนหลังบ้าน",
     "exampleJa": "裏庭にはたくさんの種類の虫が飛んでいます。"
@@ -11650,7 +11650,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1294,
     "word": "แมว",
     "meaning": "猫",
-    "pronunciation": "maeo",
+    "pronunciation": "mɛɛw",
     "frequency": "7回中1回",
     "exampleTh": "ฉันเลี้ยงแมวสีขาวตัวหนึ่งที่บ้าน",
     "exampleJa": "私は家で白い猫を一匹飼っています。"
@@ -11767,7 +11767,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1307,
     "word": "ยาฆ่าแมลง",
     "meaning": "殺虫剤、農薬",
-    "pronunciation": "yaa-khâa-ma-laeng",
+    "pronunciation": "yaa-khâa-ma-lɛɛng",
     "frequency": "7回中1回",
     "exampleTh": "เกษตรกรใช้ยาฆ่าแมลงเพื่อปกป้องพืชผัก",
     "exampleJa": "農家は野菜を守るために農薬を使用します。"
@@ -11803,7 +11803,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1311,
     "word": "ยารักษาแผล",
     "meaning": "傷薬",
-    "pronunciation": "yaa-rák-sǎa-phǎe",
+    "pronunciation": "yaa-rák-sǎa-phlɛ̌ɛ",
     "frequency": "7回中1回",
     "exampleTh": "ทายารักษาแผลที่แขน",
     "exampleJa": "腕に傷薬を塗る。"
@@ -11848,7 +11848,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1316,
     "word": "ยิ้มแย้ม",
     "meaning": "にこにこする、笑顔の",
-    "pronunciation": "yím-yáem",
+    "pronunciation": "yím-yɛ́ɛm",
     "frequency": "7回中1回",
     "exampleTh": "เธอเป็นคนยิ้มแย้มแจ่มใสเสมอ",
     "exampleJa": "彼女はいつもにこにこして明るい。"
@@ -11911,7 +11911,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1323,
     "word": "แยก",
     "meaning": "分ける、交差点",
-    "pronunciation": "yâek",
+    "pronunciation": "yɛ̂ɛk",
     "frequency": "7回中1回",
     "exampleTh": "เลี้ยวซ้ายที่แยกข้างหน้า",
     "exampleJa": "前方の交差点を左に曲がってください。"
@@ -11920,7 +11920,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1324,
     "word": "แย่ง",
     "meaning": "奪う、争う",
-    "pronunciation": "yâeng",
+    "pronunciation": "yɛ̂ɛng",
     "frequency": "7回中1回",
     "exampleTh": "สุนัขสองตัวแย่งกระดูกกัน",
     "exampleJa": "2匹の犬が骨を奪い合っている。"
@@ -11929,7 +11929,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1325,
     "word": "แย่งกัน",
     "meaning": "奪い合う、競い合う",
-    "pronunciation": "yâeng-kan",
+    "pronunciation": "yɛ̂ɛng-kan",
     "frequency": "7回中1回",
     "exampleTh": "เด็กๆ แย่งกันซื้อของเล่นใหม่",
     "exampleJa": "子供たちが新しいおもちゃを競って買っている。"
@@ -11938,7 +11938,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1326,
     "word": "แยะ",
     "meaning": "たくさんの、多くの",
-    "pronunciation": "yáe",
+    "pronunciation": "yɛ́",
     "frequency": "7回中1回",
     "exampleTh": "วันนี้มีงานต้องทำเยอะแยะเลย",
     "exampleJa": "今日はやるべき仕事がたくさんある。"
@@ -11965,7 +11965,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1329,
     "word": "รถแท็กซี่",
     "meaning": "タクシー",
-    "pronunciation": "rót-tháek-sîi",
+    "pronunciation": "rót-thɛ́k-sîi",
     "frequency": "7回中1回",
     "exampleTh": "เราเรียกรถแท็กซี่ไปสนามบิน",
     "exampleJa": "私たちは空港へ行くためにタクシーを呼んだ。"
@@ -12325,7 +12325,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1369,
     "word": "รุนแรง",
     "meaning": "激しい、暴力的な",
-    "pronunciation": "run-raeng",
+    "pronunciation": "run-rɛɛng",
     "frequency": "7回中1回",
     "exampleTh": "พายุพัดถล่มเมืองอย่างรุนแรงเมื่อคืน",
     "exampleJa": "昨夜、嵐が街を激しく襲った。"
@@ -12703,7 +12703,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1411,
     "word": "เลียนแบบ",
     "meaning": "真似する",
-    "pronunciation": "lian-bàep",
+    "pronunciation": "lian-bɛ̀ɛp",
     "frequency": "7回中1回",
     "exampleTh": "เด็กชอบเลียนแบบพฤติกรรมของผู้ใหญ่",
     "exampleJa": "子供は大人の行動を真似するのが好きだ。"
@@ -12730,7 +12730,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1414,
     "word": "แล",
     "meaning": "眺める",
-    "pronunciation": "lae",
+    "pronunciation": "lɛɛ",
     "frequency": "7回中1回",
     "exampleTh": "เขานั่งแลดูวิวทะเลอย่างเพลิดเพลิน",
     "exampleJa": "彼は楽しそうに座って海の景色を眺めている。"
@@ -12739,7 +12739,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1415,
     "word": "แลกเงิน",
     "meaning": "両替する",
-    "pronunciation": "lâek-ngoen",
+    "pronunciation": "lɛ̂ɛk-ngoen",
     "frequency": "7回中1回",
     "exampleTh": "ฉันต้องการแลกเงินเยนเป็นเงินบาท",
     "exampleJa": "円をバーツに両替したいです。"
@@ -12748,7 +12748,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1416,
     "word": "แล้วก็",
     "meaning": "それから",
-    "pronunciation": "láeo-gôr",
+    "pronunciation": "lɛ́ɛw-gɔ̂",
     "frequency": "7回中1回",
     "exampleTh": "กินข้าวเสร็จแล้วก็ไปดูหนังกัน",
     "exampleJa": "ご飯を食べたら、それから映画を見に行こう。"
@@ -12757,7 +12757,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1417,
     "word": "แล้วเจอกัน",
     "meaning": "また会いましょう",
-    "pronunciation": "láeo-coe-gan",
+    "pronunciation": "lɛ́ɛw-cəə-gan",
     "frequency": "7回中1回",
     "exampleTh": "วันเสาร์นี้เจอกันนะ แล้วเจอกันครับ",
     "exampleJa": "今週の土曜日に会いましょう、またね。"
@@ -12766,7 +12766,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1418,
     "word": "แล้วยัง",
     "meaning": "もう〜したか",
-    "pronunciation": "láeo-yang",
+    "pronunciation": "lɛ́ɛw-yang",
     "frequency": "7回中1回",
     "exampleTh": "คุณกินข้าวกลางวันแล้วหรือยัง",
     "exampleJa": "もう昼ご飯は食べましたか？"
@@ -12856,7 +12856,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1428,
     "word": "วางแผน",
     "meaning": "計画する",
-    "pronunciation": "waang-phǎen",
+    "pronunciation": "waang-phɛ̌ɛn",
     "frequency": "7回中1回",
     "exampleTh": "พวกเราต้องวางแผนการเดินทางล่วงหน้า",
     "exampleJa": "私たちは事前に旅行の計画を立てる必要があります。"
@@ -12991,7 +12991,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1443,
     "word": "แวะ",
     "meaning": "立ち寄る",
-    "pronunciation": "wáe",
+    "pronunciation": "wɛ́",
     "frequency": "7回中1回",
     "exampleTh": "ฉันแวะซื้อกาแฟก่อนไปทำงานทุกวัน",
     "exampleJa": "私は毎日仕事に行く前にコーヒーを買うために立ち寄ります。"
@@ -13468,7 +13468,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1496,
     "word": "สีแดง",
     "meaning": "赤色",
-    "pronunciation": "sǐi-daeng",
+    "pronunciation": "sǐi-dɛɛng",
     "frequency": "7回中1回",
     "exampleTh": "ฉันชอบใส่เสื้อสีแดงในวันตรุษจีน",
     "exampleJa": "私は旧正月に赤い服を着るのが好きです。"
@@ -14008,7 +14008,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1556,
     "word": "แห่ง",
     "meaning": "〜の、場所",
-    "pronunciation": "hàeng",
+    "pronunciation": "hɛ̀ɛng",
     "frequency": "7回中1回",
     "exampleTh": "เขาทำงานที่ธนาคารแห่งหนึ่ง",
     "exampleJa": "彼はある銀行で働いています。"
@@ -14152,7 +14152,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1572,
     "word": "เอาแต่",
     "meaning": "〜ばかりする",
-    "pronunciation": "ao-tàe",
+    "pronunciation": "ao-tɛ̀ɛ",
     "frequency": "7回中1回",
     "exampleTh": "เขาเอาแต่เล่นเกมไม่ยอมทำการบ้าน",
     "exampleJa": "彼は宿題をしないでゲームばかりしている。"
@@ -14161,7 +14161,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1573,
     "word": "เอาแต่ใจตัวเอง",
     "meaning": "わがままな",
-    "pronunciation": "ao-tàe-cai-tua-eeng",
+    "pronunciation": "ao-tɛ̀ɛ-cai-tua-eeŋ",
     "frequency": "7回中1回",
     "exampleTh": "อย่าเอาแต่ใจตัวเองให้มากนักเลย",
     "exampleJa": "あまりわがままを言わないでください。"
@@ -14170,7 +14170,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1574,
     "word": "แอโรบิก",
     "meaning": "エアロビクス",
-    "pronunciation": "ae-roo-bìk",
+    "pronunciation": "ɛɛ-roo-bìk",
     "frequency": "7回中1回",
     "exampleTh": "แม่ชอบไปเต้นแอโรบิกที่สวนสาธารณะ",
     "exampleJa": "母は公園にエアロビクスを踊りに行くのが好きです。"
@@ -14179,7 +14179,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1575,
     "word": "แออัด",
     "meaning": "混雑した",
-    "pronunciation": "ae-àt",
+    "pronunciation": "ɛɛ-àt",
     "frequency": "7回中1回",
     "exampleTh": "รถไฟในตอนเช้ามีคนแออัดมาก",
     "exampleJa": "朝の電車は人がとても混雑しています。"
@@ -14188,7 +14188,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1576,
     "word": "แอ็ะ",
     "meaning": "えっ",
-    "pronunciation": "ae",
+    "pronunciation": "ɛ́",
     "frequency": "7回中1回",
     "exampleTh": "แอ็ะ! ทำไมเธอถึงทำแบบนั้นล่ะ",
     "exampleJa": "えっ！どうしてそんなことをするの？"
@@ -14647,7 +14647,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1627,
     "word": "อยู่แล้ว",
     "meaning": "当然、すでに",
-    "pronunciation": "yùu-láew",
+    "pronunciation": "yùu-lɛ́ɛw",
     "frequency": "7回中1回",
     "exampleTh": "ฉันรู้เรื่องนี้อยู่แล้ว ไม่ต้องบอกหรอก",
     "exampleJa": "そのことはもう知っています、言わなくていいですよ。"
@@ -14665,7 +14665,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1629,
     "word": "ออกแบบ",
     "meaning": "設計する、デザインする",
-    "pronunciation": "òok-bàep",
+    "pronunciation": "òok-bɛ̀ɛp",
     "frequency": "7回中1回",
     "exampleTh": "เขาเป็นคนออกแบบบ้านหลังนี้ด้วยตัวเอง",
     "exampleJa": "彼はこの家を自分で設計しました。"
@@ -14800,7 +14800,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 1644,
     "word": "อาบแดด",
     "meaning": "日光浴する",
-    "pronunciation": "àap-dàet",
+    "pronunciation": "àap-dɛ̀ɛt",
     "frequency": "7回中1回",
     "exampleTh": "นักท่องเที่ยวชอบมานอนอาบแดดที่นี่",
     "exampleJa": "観光客はここで日光浴をして寝るのが好きです。"
