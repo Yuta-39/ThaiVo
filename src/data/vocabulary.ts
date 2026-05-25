@@ -6763,7 +6763,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 751,
     "word": "การ์ตูน",
     "meaning": "漫画、アニメ",
-    "pronunciation": "gaar-tuun",
+    "pronunciation": "gaa-tuun",
     "frequency": "7回中1回",
     "exampleTh": "ฉันชอบอ่านการ์ตูนญี่ปุ่นมาก",
     "exampleJa": "私は日本の漫画を読むのが大好きです。"
@@ -6772,7 +6772,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 752,
     "word": "การเต้น",
     "meaning": "ダンス、踊り",
-    "pronunciation": "gaar-tên",
+    "pronunciation": "gaan-tên",
     "frequency": "7回中1回",
     "exampleTh": "การเต้นช่วยให้ร่างกายแข็งแรง",
     "exampleJa": "ダンスは体を健康にするのに役立ちます。"
@@ -6781,7 +6781,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 753,
     "word": "การนอนหลับ",
     "meaning": "睡眠",
-    "pronunciation": "gaar-nawn-làp",
+    "pronunciation": "gaan-nawn-làp",
     "frequency": "7回中1回",
     "exampleTh": "การนอนหลับที่ดีสำคัญต่อสุขภาพ",
     "exampleJa": "質の良い睡眠は健康にとって重要です。"
@@ -6790,7 +6790,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 754,
     "word": "การประชุม",
     "meaning": "会議",
-    "pronunciation": "gaar-pra-chum",
+    "pronunciation": "gaan-pra-chum",
     "frequency": "7回中1回",
     "exampleTh": "พรุ่งนี้ฉันมีการประชุมตอนเช้า",
     "exampleJa": "明日の朝、私は会議があります。"
@@ -6799,7 +6799,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 755,
     "word": "การผ่าตัด",
     "meaning": "手術",
-    "pronunciation": "gaar-phàa-tàt",
+    "pronunciation": "gaan-phàa-tàt",
     "frequency": "7回中1回",
     "exampleTh": "การผ่าตัดผ่านไปด้วยดีและปลอดภัย",
     "exampleJa": "手術は無事に安全に終わりました。"
@@ -6808,7 +6808,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 756,
     "word": "การพักผ่อน",
     "meaning": "休息、リラックス",
-    "pronunciation": "gaar-phák-phòn",
+    "pronunciation": "gaan-phák-phɔ̀ɔn",
     "frequency": "7回中1回",
     "exampleTh": "วันหยุดนี้ฉันต้องการการพักผ่อน",
     "exampleJa": "この週末、私は休息が必要です。"
@@ -6817,7 +6817,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 757,
     "word": "การศึกษา",
     "meaning": "教育、学習",
-    "pronunciation": "gaar-sʉ̀k-sǎa",
+    "pronunciation": "gaan-sʉ̀k-sǎa",
     "frequency": "7回中1回",
     "exampleTh": "การศึกษาเป็นสิ่งสำคัญสำหรับเด็ก",
     "exampleJa": "教育は子供たちにとって重要です。"
@@ -6826,7 +6826,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 758,
     "word": "การแสดง",
     "meaning": "演技、ショー、公演",
-    "pronunciation": "gaar-sà-dɛɛng",
+    "pronunciation": "gaan-sà-dɛɛng",
     "frequency": "7回中1回",
     "exampleTh": "ผู้ชมชอบการแสดงของเขามาก",
     "exampleJa": "観客は彼の演技がとても気に入りました。"
@@ -6835,7 +6835,7 @@ export const vocabulary: VocabularyItem[] = [
     "id": 759,
     "word": "การแสดงพื้นเมือง",
     "meaning": "伝統芸能、郷土芸能",
-    "pronunciation": "gaar-sà-dɛɛng-phʉ́ʉn-mʉang",
+    "pronunciation": "gaan-sà-dɛɛng-phʉ́ʉn-mʉang",
     "frequency": "7回中1回",
     "exampleTh": "นักท่องเที่ยวชอบดูการแสดงพื้นเมือง",
     "exampleJa": "観光客は伝統芸能を見るのが好きです。"

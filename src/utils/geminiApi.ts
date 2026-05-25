@@ -51,6 +51,8 @@ function analyzeSentenceLocally(
   }
 
   const hasAllWords = missingWords.length === 0;
+  const usedWordsCount = requiredWords.length - missingWords.length;
+  const hasThai = /[\u0e00-\u0e7f]/.test(trimmed);
   
   // 2. 文字数チェック（単語を並べただけではないか）
   const requiredWordsLength = requiredWords.reduce((sum, item) => sum + item.word.length, 0);
@@ -58,64 +60,77 @@ function analyzeSentenceLocally(
 
   // 3. スコア計算
   let score = 100;
-  if (!hasAllWords) {
-    score -= missingWords.length * 20; // 必須単語が抜けている場合は大幅減点
-  }
   
-  if (strictness === 'easy') {
-    // 優しめ：必須単語が入っていれば基本100点
-    if (hasAllWords) {
-      score = 100;
-    }
-  } else if (strictness === 'hard') {
-    // 厳しめ：単語の並べ方、長さ、丁寧さに厳格
-    if (isTooShort) {
-      score -= 30; // 厳しい減点
-    }
-    const hasPolite = trimmed.endsWith('ครับ') || trimmed.endsWith('ค่ะ') || trimmed.endsWith('คะ');
-    if (!hasPolite) {
-      score -= 20; // 丁寧表現がない場合は厳しく減点
-    }
-  } else {
-    // 普通
-    if (isTooShort) {
-      score -= 15;
-    }
-  }
-
-  if (trimmed.length === 0) {
+  if (trimmed.length === 0 || !hasThai || usedWordsCount === 0) {
     score = 0;
+  } else {
+    // 少なくとも1つはタイ語の必須単語が含まれている場合
+    if (!hasAllWords) {
+      score -= missingWords.length * 20; // 必須単語が抜けている場合は大幅減点
+    }
+    
+    if (strictness === 'easy') {
+      // 優しめ：必須単語が入っていれば基本100点
+      if (hasAllWords) {
+        score = 100;
+      }
+    } else if (strictness === 'hard') {
+      // 厳しめ：単語の並べ方、長さ、丁寧さに厳格
+      if (isTooShort) {
+        score -= 30; // 厳しい減点
+      }
+      const hasPolite = trimmed.endsWith('ครับ') || trimmed.endsWith('ค่ะ') || trimmed.endsWith('คะ');
+      if (!hasPolite) {
+        score -= 20; // 丁寧表現がない場合は厳しく減点
+      }
+    } else {
+      // 普通
+      if (isTooShort) {
+        score -= 15;
+      }
+    }
+    score = Math.max(0, score);
   }
 
   // 合格基準の判定
   let passed = false;
-  if (strictness === 'easy') {
-    passed = score >= 60 && hasAllWords;
-  } else if (strictness === 'hard') {
-    passed = score >= 85 && hasAllWords; // 厳しめは85点以上
-  } else {
-    passed = score >= 70 && hasAllWords; // 普通は70点以上
+  if (score > 0 && hasAllWords) {
+    if (strictness === 'easy') {
+      passed = score >= 60;
+    } else if (strictness === 'hard') {
+      passed = score >= 85;
+    } else {
+      passed = score >= 70;
+    }
   }
 
   // 4. 動的アドバイス（改善点）の生成
   const improvements: string[] = [];
-  if (!hasAllWords) {
-    improvements.push(`必須単語のうち [ ${missingWords.join(', ')} ] が文章中に見当たりません。スペルを確認してもう一度含めてください。`);
-  }
-  if (isTooShort && trimmed.length > 0) {
-    improvements.push('文章が少し短すぎます。接続詞（และ, แต่）や、主語・目的語を補って、より具体的な文にしてみましょう。');
-  }
-
-  // 単語個別のアドバイスを適用
-  for (const item of requiredWords) {
-    if (WORD_ADVICES[item.word]) {
-      improvements.push(WORD_ADVICES[item.word]);
+  if (!hasThai && trimmed.length > 0) {
+    improvements.push('タイ語を入力してください。タイ語の文字以外（英語や日本語）のみでは評価できません。');
+  } else if (usedWordsCount === 0 && trimmed.length > 0) {
+    improvements.push('指定された必須単語が一つも使われていません。指定された単語のスペルを確認して文章に含めてください。');
+  } else {
+    if (!hasAllWords) {
+      improvements.push(`必須単語のうち [ ${missingWords.join(', ')} ] が文章中に見当たりません。スペルを確認してもう一度含めてください。`);
     }
-  }
+    if (isTooShort && trimmed.length > 0) {
+      improvements.push('文章が少し短すぎます。接続詞（และ, แต่）や、主語・目的語を補って、より具体的な文にしてみましょう。');
+    }
 
-  // タイ語文末の助詞アドバイス
-  if (!trimmed.endsWith('ครับ') && !trimmed.endsWith('ค่ะ') && !trimmed.endsWith('คะ')) {
-    improvements.push('文末に丁寧にする助詞（男性なら ครับ、女性なら ค่ะ）をつけると、より礼儀正しく自然なタイ語になります。');
+    // 単語個別のアドバイスを適用
+    for (const item of requiredWords) {
+      if (WORD_ADVICES[item.word]) {
+        if (trimmed.includes(item.word)) {
+          improvements.push(WORD_ADVICES[item.word]);
+        }
+      }
+    }
+
+    // タイ語文末の助詞アドバイス
+    if (hasThai && !trimmed.endsWith('ครับ') && !trimmed.endsWith('ค่ะ') && !trimmed.endsWith('คะ')) {
+      improvements.push('文末に丁寧にする助詞（男性なら ครับ、女性なら ค่ะ）をつけると、より礼儀正しく自然なタイ語になります。');
+    }
   }
 
   // 5. 合否メッセージと要約
@@ -145,35 +160,48 @@ function analyzeSentenceLocally(
       naturalness = '接続や単語のチョイスが極めて自然で、タイ人にもスムーズに通じる文体です。';
     }
   } else {
-    if (strictness === 'easy') {
-      summary = trimmed.length === 0 
-        ? '回答が入力されていません。文章を入力してください。'
-        : '惜しいです！必須単語が足りないため不合格です。';
-      grammarFeedback = '必須単語が欠けているため、出題条件を満たしていません。';
-      vocabularyUsage = `指定された単語（${missingWords.join(', ')}）を文章の中に必ず含めてください。`;
-      naturalness = '必要な単語が含まれるように文章を見直してみましょう。';
-    } else if (strictness === 'hard') {
-      summary = '「厳しめ」モード不合格：より正確かつ洗練された構成が必要です。';
-      grammarFeedback = !hasAllWords 
-        ? '必須単語の欠落があります。'
-        : isTooShort 
-          ? '文章のボリュームが不十分です。より具体的な詳細や接続詞を補ってください。'
-          : '文末の丁寧助詞（ครับ/ค่ะ）など、細部の正確さが欠けています。';
-      vocabularyUsage = hasAllWords
-        ? '単語は入っていますが、単なる羅列に近く、豊かな表現にはなっていません。'
-        : `必須単語（${missingWords.join(', ')}）を漏れなく自然に繋げてください。`;
-      naturalness = '語彙の接続部分に不自然さがあるか、表現がやや直訳的で拙いです。';
+    if (trimmed.length === 0) {
+      summary = '回答が入力されていません。文章を入力してください。';
+      grammarFeedback = '入力が空です。';
+      vocabularyUsage = '必須単語が配置されていません。';
+      naturalness = '文章を入力してください。';
+    } else if (!hasThai) {
+      summary = 'タイ語が入力されていません。タイ文字を使って文章を書いてください。';
+      grammarFeedback = 'タイ語以外の文字が入力されているため、タイ語の文法は判定できません。';
+      vocabularyUsage = 'タイ語の必須単語が使用されていません。';
+      naturalness = 'アルファベットや他言語ではなく、タイ文字で記述する必要があります。';
+    } else if (usedWordsCount === 0) {
+      summary = '指定された必須単語が一つも含まれていません。';
+      grammarFeedback = '必須単語を組み込んだ文法構造を作る必要があります。';
+      vocabularyUsage = `指定された単語（${requiredWords.map(w => w.word).join(', ')}）を必ず文章に含めてください。`;
+      naturalness = '指定されたタイ語の語彙を使って文章を作成してみましょう。';
     } else {
-      summary = trimmed.length === 0 
-        ? '回答が入力されていません。文章を入力してください。'
-        : '惜しいです！文法や必要な単語の構成にいくつか改善の余地があります。';
-      grammarFeedback = hasAllWords 
-        ? '骨組みはできていますが、少し言葉を補うとタイ語の語順としてより綺麗になります。'
-        : '必須単語が欠けているため、文法構造が不完全になっています。';
-      vocabularyUsage = hasAllWords 
-        ? '単語はすべて使えていますが、接続がやや強引です。'
-        : `指定された単語（${missingWords.join(', ')}）を文中に配置してください。`;
-      naturalness = '少し単語を並べただけのように見えたり、文意が曖昧になっている箇所があります。';
+      if (strictness === 'easy') {
+        summary = '不合格です。必須単語が足りません。';
+        grammarFeedback = '必須単語が欠けているため、出題条件を満たしていません。';
+        vocabularyUsage = `指定された単語（${missingWords.join(', ')}）を文章の中に必ず含めてください。`;
+        naturalness = '必要な単語が含まれるように文章を見直してみましょう。';
+      } else if (strictness === 'hard') {
+        summary = '「厳しめ」モード不合格：より正確かつ洗練された構成が必要です。';
+        grammarFeedback = !hasAllWords 
+          ? '必須単語の欠落があります。'
+          : isTooShort 
+            ? '文章のボリュームが不十分です。より具体的な詳細や接続詞を補ってください。'
+            : '文末の丁寧助詞（ครับ/ค่ะ）など、細部の正確さが欠けています。';
+        vocabularyUsage = hasAllWords
+          ? '単語は入っていますが、単なる羅列に近く、豊かな表現にはなっていません。'
+          : `必須単語（${missingWords.join(', ')}）を漏れなく自然に繋げてください。`;
+        naturalness = '語彙の接続部分に不自然さがあるか、表現がやや直訳的で拙いです。';
+      } else {
+        summary = '不合格です。文法や必要な単語の構成にいくつか改善の余地があります。';
+        grammarFeedback = hasAllWords 
+          ? '骨組みはできていますが、少し言葉を補うとタイ語の語順としてより綺麗になります。'
+          : '必須単語が欠けているため、文法構造が不完全になっています。';
+        vocabularyUsage = hasAllWords 
+          ? '単語はすべて使えていますが、接続がやや強引です。'
+          : `指定された単語（${missingWords.join(', ')}）を文中に配置してください。`;
+        naturalness = '少し単語を並べただけのように見えたり、文意が曖昧になっている箇所があります。';
+      }
     }
 
     // 疑似の正しい文章提案

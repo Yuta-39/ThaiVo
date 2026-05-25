@@ -54,34 +54,34 @@ const WordChip: React.FC<{ word: VocabularyItem; index: number }> = ({ word, ind
   ];
   const c = colors[index % colors.length];
   return (
-    <div className={`flex flex-col items-center px-6 py-4 rounded-2xl border ${c} min-w-[130px]`}>
-      <span className="text-2xl font-bold" style={{ fontFamily: "'Noto Sans Thai', sans-serif" }}>
+    <div className={`flex flex-col items-center px-10 py-6 rounded-2xl border ${c} min-w-[180px]`}>
+      <span className="text-4xl font-bold" style={{ fontFamily: "'Noto Sans Thai', sans-serif" }}>
         {word.word}
       </span>
-      <span className="text-xs opacity-70 mt-1 font-mono">{word.pronunciation}</span>
-      <span className="text-xs opacity-60 mt-1 text-white/60 font-semibold">{word.meaning}</span>
+      <span className="text-base opacity-80 mt-1.5 font-mono">{word.pronunciation}</span>
+      <span className="text-base opacity-70 mt-1 text-white/70 font-semibold">{word.meaning}</span>
     </div>
   );
 };
 
 const ScoreRing: React.FC<{ score: number; passed: boolean }> = ({ score, passed }) => {
-  const r = 50;
+  const r = 70;
   const circ = 2 * Math.PI * r;
   const offset = circ - (score / 100) * circ;
   const color = passed ? '#10b981' : score >= 50 ? '#f59e0b' : '#ef4444';
   return (
-    <div className="relative w-36 h-36 flex items-center justify-center">
-      <svg className="absolute inset-0 -rotate-90" width="144" height="144" viewBox="0 0 144 144">
-        <circle cx="72" cy="72" r={r} fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="10" />
+    <div className="relative w-52 h-52 flex items-center justify-center">
+      <svg className="absolute inset-0 -rotate-90" width="208" height="208" viewBox="0 0 208 208">
+        <circle cx="104" cy="104" r={r} fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="14" />
         <circle
-          cx="72" cy="72" r={r} fill="none"
-          stroke={color} strokeWidth="10"
+          cx="104" cy="104" r={r} fill="none"
+          stroke={color} strokeWidth="14"
           strokeDasharray={circ} strokeDashoffset={offset}
           strokeLinecap="round"
           style={{ transition: 'stroke-dashoffset 1s ease, stroke 0.5s ease' }}
         />
       </svg>
-      <span className="text-5xl font-black text-white">{score}</span>
+      <span className="text-7xl font-black text-white">{score}</span>
     </div>
   );
 };
@@ -165,18 +165,18 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
       </div>
 
       {/* Header */}
-      <header className="relative z-10 w-full max-w-5xl flex items-center gap-6 mb-12">
+      <header className="relative z-10 w-full max-w-7xl flex items-center gap-6 mb-12">
         <button
           onClick={onBack}
-          className="w-14 h-14 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors"
+          className="w-16 h-16 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors"
         >
-          <svg className="w-7 h-7 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
         <div>
-          <p className="text-white/40 text-xs font-bold tracking-widest uppercase mb-1">Thai Vocabulary</p>
-          <h1 className="text-4xl font-black text-white tracking-tight">
+          <p className="text-white/40 text-base font-bold tracking-widest uppercase mb-1">Thai Vocabulary</p>
+          <h1 className="text-6xl font-black text-white tracking-tight">
             イチ<span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-400">日記</span>
           </h1>
         </div>
@@ -184,12 +184,12 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
 
       {/* ── PHASE: setup ── */}
       {phase === 'setup' && (
-        <div className="relative z-10 w-full max-w-5xl flex flex-col gap-8">
+        <div className="relative z-10 w-full max-w-7xl flex flex-col gap-8">
 
           {/* Mode selector */}
-          <div className="rounded-3xl border border-white/8 bg-white/3 p-8 backdrop-blur-md">
-            <p className="text-white/50 text-base font-black tracking-widest uppercase mb-5">出題モード</p>
-            <div className="grid grid-cols-2 gap-5">
+          <div className="rounded-3xl border border-white/8 bg-white/3 p-10 backdrop-blur-md">
+            <p className="text-white/50 text-2xl font-black tracking-widest uppercase mb-6">出題モード</p>
+            <div className="grid grid-cols-2 gap-8">
               {(
                 [
                   {
@@ -214,31 +214,31 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
                   key={m.key}
                   onClick={() => setMode(m.key)}
                   className={`
-                    flex flex-col items-start gap-3 p-8 rounded-3xl border text-left
+                    flex flex-col items-center justify-center min-h-[300px] p-10 rounded-3xl border text-center
                     transition-all duration-200 active:scale-95
                     ${mode === m.key ? m.active : m.color + ' hover:border-white/20'}
                   `}
                 >
-                  <span className="text-4xl">{m.icon}</span>
-                  <span className="text-white font-black text-2xl">{m.label}</span>
-                  <span className="text-white/50 text-sm leading-relaxed">{m.sub}</span>
+                  <span className="text-7xl mb-4">{m.icon}</span>
+                  <span className="text-white font-black text-4xl mb-3">{m.label}</span>
+                  <span className="text-white/60 text-xl leading-relaxed max-w-[420px]">{m.sub}</span>
                 </button>
               ))}
             </div>
           </div>
 
           {/* Word count selector */}
-          <div className="rounded-3xl border border-white/8 bg-white/3 p-8 backdrop-blur-md">
-            <p className="text-white/50 text-base font-black tracking-widest uppercase mb-5">
-              使用単語数 <span className="text-white/60 normal-case font-medium">（最小3・最大6）</span>
+          <div className="rounded-3xl border border-white/8 bg-white/3 p-10 backdrop-blur-md">
+            <p className="text-white/50 text-2xl font-black tracking-widest uppercase mb-6">
+              使用単語数
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-6">
               {[3, 4, 5, 6].map(n => (
                 <button
                   key={n}
                   onClick={() => setWordCount(n)}
                   className={`
-                    flex-1 py-5 rounded-2xl border font-black text-2xl transition-all duration-150 active:scale-95
+                    flex-1 py-8 rounded-2xl border font-black text-4xl transition-all duration-150 active:scale-95
                     ${wordCount === n
                       ? 'border-violet-400 bg-violet-500/15 text-violet-300'
                       : 'border-white/8 bg-white/3 text-white/50 hover:border-white/20'
@@ -252,16 +252,15 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
           </div>
 
           {/* Strictness (Grading Mode) Selector */}
-          <div className="rounded-3xl border border-white/8 bg-white/3 p-8 backdrop-blur-md">
-            <p className="text-white/50 text-base font-black tracking-widest uppercase mb-5">採点基準</p>
-            <div className="grid grid-cols-3 gap-4">
+          <div className="rounded-3xl border border-white/8 bg-white/3 p-10 backdrop-blur-md">
+            <p className="text-white/50 text-2xl font-black tracking-widest uppercase mb-6">採点基準</p>
+            <div className="grid grid-cols-3 gap-6">
               {(
                 [
                   {
                     key: 'easy',
                     label: '優しめ',
                     sub: '必須単語があれば100点合格',
-                    icon: '🟢',
                     color: 'border-emerald-500/20 bg-emerald-500/5 text-emerald-300/80',
                     active: 'border-emerald-400 bg-emerald-500/15 text-emerald-300',
                   },
@@ -269,7 +268,6 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
                     key: 'normal',
                     label: '普通',
                     sub: '構成や長さに応じ適宜減点',
-                    icon: '🟡',
                     color: 'border-yellow-500/20 bg-yellow-500/5 text-yellow-300/80',
                     active: 'border-yellow-400 bg-yellow-500/15 text-yellow-300',
                   },
@@ -277,7 +275,6 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
                     key: 'hard',
                     label: '厳しめ',
                     sub: '文順・丁寧表現を厳格にチェック',
-                    icon: '🔴',
                     color: 'border-rose-500/20 bg-rose-500/5 text-rose-300/80',
                     active: 'border-rose-400 bg-rose-500/15 text-rose-300',
                   },
@@ -287,14 +284,13 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
                   key={s.key}
                   onClick={() => setStrictness(s.key)}
                   className={`
-                    flex flex-col items-center text-center gap-2 p-6 rounded-3xl border
+                    flex flex-col items-center justify-center min-h-[160px] p-6 rounded-3xl border text-center
                     transition-all duration-200 active:scale-95
                     ${strictness === s.key ? s.active : s.color + ' hover:border-white/10'}
                   `}
                 >
-                  <span className="text-3xl">{s.icon}</span>
-                  <span className="font-black text-lg">{s.label}</span>
-                  <span className="text-[11px] opacity-60 leading-tight">{s.sub}</span>
+                  <span className="font-black text-3xl mb-2">{s.label}</span>
+                  <span className="text-lg text-white/60 leading-relaxed max-w-[260px]">{s.sub}</span>
                 </button>
               ))}
             </div>
@@ -302,7 +298,7 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
 
           {/* Note about API key */}
           {!import.meta.env.VITE_GEMINI_API_KEY && (
-            <div className="rounded-2xl border border-rose-500/20 bg-rose-500/8 px-6 py-5 text-rose-300 text-base">
+            <div className="rounded-2xl border border-rose-500/20 bg-rose-500/8 px-8 py-6 text-rose-300 text-lg">
               <span className="font-black">⚠️ APIキー未設定：</span>{' '}
               プロジェクトルートの <code className="bg-white/10 px-1.5 rounded">.env</code> ファイルに{' '}
               <code className="bg-white/10 px-1.5 rounded">VITE_GEMINI_API_KEY=your_key</code> を追加してください。
@@ -313,7 +309,7 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
           <button
             onClick={handleStart}
             className="
-              w-full py-6 rounded-3xl font-black text-2xl text-white tracking-wide
+              w-full py-10 rounded-3xl font-black text-4xl text-white tracking-wider
               bg-gradient-to-r from-violet-600 to-indigo-600
               hover:from-violet-500 hover:to-indigo-500
               shadow-[0_0_35px_rgba(139,92,246,0.3)]
@@ -328,12 +324,12 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
 
       {/* ── PHASE: writing ── */}
       {phase === 'writing' && (
-        <div className="relative z-10 w-full max-w-5xl flex flex-col gap-8">
+        <div className="relative z-10 w-full max-w-7xl flex flex-col gap-8">
 
           {/* Mode badge */}
           <div className="flex items-center gap-3">
             <span className={`
-              text-xs font-black tracking-widest uppercase px-4 py-1.5 rounded-full border
+              text-base font-black tracking-widest uppercase px-6 py-2.5 rounded-full border
               ${mode === 'random'
                 ? 'text-amber-300 bg-amber-500/10 border-amber-500/20'
                 : 'text-violet-300 bg-violet-500/10 border-violet-500/20'
@@ -341,21 +337,21 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
             `}>
               {mode === 'random' ? '🎲 ランダム系' : '🎯 確実系'}
             </span>
-            <span className="text-white/40 text-sm">{selectedWords.length}単語</span>
+            <span className="text-white/40 text-lg">{selectedWords.length}単語</span>
           </div>
 
           {/* Directed: target sentence */}
           {mode === 'directed' && directedPrompt && (
             <div className="rounded-3xl border border-violet-500/20 bg-violet-500/5 px-8 py-6 backdrop-blur-md">
-              <p className="text-violet-300/60 text-xs font-black tracking-widest uppercase mb-3">目標文章（日本語）</p>
-              <p className="text-white text-2xl font-bold leading-relaxed">{directedPrompt.japaneseSentence}</p>
-              <p className="text-violet-300/50 text-sm mt-3">↑ この意味のタイ語文章を、下の単語を使って書いてください</p>
+              <p className="text-violet-300/60 text-lg font-black tracking-widest uppercase mb-3">目標文章（日本語）</p>
+              <p className="text-white text-4xl font-bold leading-relaxed">{directedPrompt.japaneseSentence}</p>
+              <p className="text-violet-300/50 text-lg mt-3">↑ この意味のタイ語文章を、下の単語を使って書いてください</p>
             </div>
           )}
 
           {/* Required words */}
           <div className="rounded-3xl border border-white/8 bg-white/3 p-8 backdrop-blur-md">
-            <p className="text-white/40 text-xs font-black tracking-widest uppercase mb-5">使用する単語（全て使うこと）</p>
+            <p className="text-white/40 text-lg font-black tracking-widest uppercase mb-5">使用する単語（全て使うこと）</p>
             <div className="flex flex-wrap gap-4">
               {selectedWords.map((w, i) => <WordChip key={w.id} word={w} index={i} />)}
             </div>
@@ -363,14 +359,14 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
 
           {/* Text input */}
           <div className="rounded-3xl border border-white/8 bg-white/3 p-8 backdrop-blur-md">
-            <p className="text-white/40 text-xs font-black tracking-widest uppercase mb-4">タイ語文章を入力</p>
+            <p className="text-white/40 text-lg font-black tracking-widest uppercase mb-4">タイ語文章を入力</p>
             <textarea
               value={userSentence}
               onChange={e => setUserSentence(e.target.value)}
               placeholder="ここにタイ語の文章を入力してください..."
               className="
-                w-full min-h-[220px] bg-white/5 border border-white/8 rounded-2xl
-                px-6 py-5 text-white text-2xl placeholder-white/20
+                w-full min-h-[300px] bg-white/5 border border-white/8 rounded-2xl
+                px-8 py-6 text-white text-4xl placeholder-white/20
                 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30
                 resize-none transition-all duration-200
               "
@@ -380,7 +376,7 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
 
           {/* Error */}
           {error && (
-            <div className="rounded-2xl border border-rose-500/20 bg-rose-500/8 px-6 py-5 text-rose-300 text-base">
+            <div className="rounded-2xl border border-rose-500/20 bg-rose-500/8 px-6 py-5 text-rose-300 text-xl">
               ❌ {error}
             </div>
           )}
@@ -389,7 +385,7 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
           <div className="grid grid-cols-2 gap-4">
             <button
               onClick={() => setPhase('setup')}
-              className="py-5 rounded-2xl border border-white/10 bg-white/5 text-white/70 font-bold text-xl hover:bg-white/8 transition-all active:scale-95"
+              className="py-8 rounded-2xl border border-white/10 bg-white/5 text-white/70 font-bold text-3xl hover:bg-white/8 transition-all active:scale-95"
             >
               やり直す
             </button>
@@ -397,7 +393,7 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
               onClick={handleEvaluate}
               disabled={!userSentence.trim()}
               className={`
-                py-5 rounded-2xl font-black text-white text-xl transition-all duration-200 active:scale-[0.98]
+                py-8 rounded-2xl font-black text-white text-3xl transition-all duration-200 active:scale-[0.98]
                 ${userSentence.trim()
                   ? 'bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 shadow-[0_0_25px_rgba(139,92,246,0.3)]'
                   : 'bg-white/5 text-white/20 cursor-not-allowed'
@@ -412,16 +408,16 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
 
       {/* ── PHASE: evaluating ── */}
       {phase === 'evaluating' && (
-        <div className="relative z-10 w-full max-w-5xl flex flex-col items-center justify-center gap-6 py-32">
-          <div className="w-20 h-20 rounded-full border-4 border-violet-500/30 border-t-violet-400 animate-spin mb-4" />
-          <p className="text-white/80 text-xl font-bold">AIが文章を評価中...</p>
-          <p className="text-white/30 text-base">Gemini が文法・語彙・意味を分析しています</p>
+        <div className="relative z-10 w-full max-w-7xl flex flex-col items-center justify-center gap-6 py-32">
+          <div className="w-28 h-28 rounded-full border-4 border-violet-500/30 border-t-violet-400 animate-spin mb-8" />
+          <p className="text-white/80 text-3xl font-bold">AIが文章を評価中...</p>
+          <p className="text-white/30 text-xl">Gemini が文法・語彙・意味を分析しています</p>
         </div>
       )}
 
       {/* ── PHASE: result ── */}
       {phase === 'result' && result && (
-        <div className="relative z-10 w-full max-w-5xl flex flex-col gap-8">
+        <div className="relative z-10 w-full max-w-7xl flex flex-col gap-8">
 
           {/* Result hero */}
           <div className={`
@@ -438,25 +434,25 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
             <div className="relative z-10 flex flex-col items-center gap-6">
               <ScoreRing score={result.score} passed={result.passed} />
               <div>
-                <p className={`text-6xl font-black tracking-tight ${result.passed ? 'text-emerald-400' : 'text-rose-400'}`}>
+                <p className={`text-8xl font-black tracking-tight ${result.passed ? 'text-emerald-400' : 'text-rose-400'}`}>
                   {result.passed ? '合格 ✓' : '不合格'}
                 </p>
-                <p className="text-white/80 text-xl mt-3 leading-relaxed max-w-2xl mx-auto">{result.summary}</p>
+                <p className="text-white/80 text-3xl mt-4 leading-relaxed max-w-2xl mx-auto">{result.summary}</p>
               </div>
 
               {/* Fire earned notification */}
               {result.passed && fireEarnedResult && (
-                <div className="mt-4 flex flex-col items-center justify-center gap-2 p-6 rounded-3xl border border-amber-500/20 bg-amber-500/10 max-w-xl w-full mx-auto shadow-[0_0_25px_rgba(245,158,11,0.15)]">
+                <div className="mt-8 flex flex-col items-center justify-center gap-2 p-6 rounded-3xl border border-amber-500/20 bg-amber-500/10 max-w-xl w-full mx-auto shadow-[0_0_25px_rgba(245,158,11,0.15)]">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl animate-bounce">🔥</span>
-                    <span className="text-amber-200 font-extrabold text-lg">
+                    <span className="text-amber-200 font-extrabold text-2xl">
                       {fireEarnedResult.earned 
                         ? '今日の 1ファイア を獲得しました！'
                         : '今日のファイアは獲得済みです！'}
                     </span>
                   </div>
-                  <div className="text-sm text-white/50">
-                    現在の合計: <span className="text-amber-400 font-black text-lg">{fireEarnedResult.count}</span> 🔥
+                  <div className="text-lg text-white/50">
+                    現在の合計: <span className="text-amber-400 font-black text-2xl">{fireEarnedResult.count}</span> 🔥
                   </div>
                 </div>
               )}
@@ -466,14 +462,14 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
           {/* Directed: target sentence */}
           {mode === 'directed' && directedPrompt && (
             <div className="rounded-3xl border border-violet-500/20 bg-violet-500/5 px-8 py-6 backdrop-blur-md">
-              <p className="text-violet-300/60 text-sm font-black tracking-widest uppercase mb-3">出題された日本語（目標の表現）</p>
-              <p className="text-white text-2xl font-bold leading-relaxed">{directedPrompt.japaneseSentence}</p>
+              <p className="text-violet-300/60 text-lg font-black tracking-widest uppercase mb-3">出題された日本語（目標の表現）</p>
+              <p className="text-white text-4xl font-bold leading-relaxed">{directedPrompt.japaneseSentence}</p>
             </div>
           )}
 
           {/* Required words */}
           <div className="rounded-3xl border border-white/8 bg-white/3 p-8 backdrop-blur-md">
-            <p className="text-white/40 text-sm font-black tracking-widest uppercase mb-5">出題された指定単語</p>
+            <p className="text-white/40 text-lg font-black tracking-widest uppercase mb-5">出題された指定単語</p>
             <div className="flex flex-wrap gap-4">
               {selectedWords.map((w, i) => <WordChip key={w.id} word={w} index={i} />)}
             </div>
@@ -481,8 +477,8 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
 
           {/* Your sentence */}
           <div className="rounded-3xl border border-white/8 bg-white/3 px-8 py-6 backdrop-blur-md">
-            <p className="text-white/40 text-sm font-black tracking-widest uppercase mb-3">あなたの回答</p>
-            <p className="text-white text-3xl leading-relaxed font-bold" style={{ fontFamily: "'Noto Sans Thai', sans-serif" }}>
+            <p className="text-white/40 text-lg font-black tracking-widest uppercase mb-3">あなたの回答</p>
+            <p className="text-white text-5xl leading-relaxed font-bold" style={{ fontFamily: "'Noto Sans Thai', sans-serif" }}>
               {userSentence}
             </p>
           </div>
@@ -490,8 +486,8 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
           {/* Corrected sentence */}
           {result.correctedSentence && (
             <div className="rounded-3xl border border-amber-500/20 bg-amber-500/5 px-8 py-6 backdrop-blur-md">
-              <p className="text-amber-300/60 text-sm font-black tracking-widest uppercase mb-3">より自然な表現</p>
-              <p className="text-amber-200 text-3xl leading-relaxed font-bold" style={{ fontFamily: "'Noto Sans Thai', sans-serif" }}>
+              <p className="text-amber-300/60 text-lg font-black tracking-widest uppercase mb-3">より自然な表現</p>
+              <p className="text-amber-200 text-5xl leading-relaxed font-bold" style={{ fontFamily: "'Noto Sans Thai', sans-serif" }}>
                 {result.correctedSentence}
               </p>
             </div>
@@ -499,7 +495,7 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
 
           {/* Detail feedback */}
           <div className="rounded-3xl border border-white/8 bg-white/3 p-8 backdrop-blur-md flex flex-col gap-6">
-            <p className="text-white/40 text-sm font-black tracking-widest uppercase">詳細フィードバック</p>
+            <p className="text-white/40 text-lg font-black tracking-widest uppercase">詳細フィードバック</p>
 
             {[
               { label: '文法', value: result.grammarFeedback, icon: '📝' },
@@ -507,10 +503,10 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
               { label: '自然さ・意味', value: result.naturalness, icon: '💬' },
             ].map(f => (
               <div key={f.label} className="flex gap-4 items-start">
-                <span className="text-3xl flex-shrink-0 mt-0.5">{f.icon}</span>
+                <span className="text-4xl flex-shrink-0 mt-0.5">{f.icon}</span>
                 <div>
-                  <p className="text-white/60 text-sm font-extrabold uppercase tracking-wider mb-1">{f.label}</p>
-                  <p className="text-white/85 text-lg leading-relaxed">{f.value}</p>
+                  <p className="text-white/60 text-lg font-extrabold uppercase tracking-wider mb-1">{f.label}</p>
+                  <p className="text-white/85 text-2xl leading-relaxed">{f.value}</p>
                 </div>
               </div>
             ))}
@@ -519,11 +515,11 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
           {/* Improvements */}
           {result.improvements.length > 0 && (
             <div className="rounded-3xl border border-sky-500/20 bg-sky-500/5 px-8 py-6 backdrop-blur-md">
-              <p className="text-sky-300/60 text-sm font-black tracking-widest uppercase mb-4">💡 改善点・注意点</p>
+              <p className="text-sky-300/60 text-lg font-black tracking-widest uppercase mb-4">💡 改善点・注意点</p>
               <ul className="flex flex-col gap-3">
                 {result.improvements.map((imp, i) => (
-                  <li key={i} className="flex gap-3 text-lg text-white/70 leading-relaxed">
-                    <span className="text-sky-400 flex-shrink-0 mt-1">•</span>
+                  <li key={i} className="flex gap-3 text-2xl text-white/70 leading-relaxed">
+                    <span className="text-sky-400 flex-shrink-0 mt-1.5">•</span>
                     {imp}
                   </li>
                 ))}
@@ -535,14 +531,14 @@ const IchiNikkiScreen: React.FC<IchiNikkiScreenProps> = ({ vocabulary, onBack })
           <div className="grid grid-cols-2 gap-4 pb-12">
             <button
               onClick={onBack}
-              className="py-5 rounded-2xl border border-white/10 bg-white/5 text-white/75 font-bold text-xl hover:bg-white/8 transition-all active:scale-95"
+              className="py-8 rounded-2xl border border-white/10 bg-white/5 text-white/75 font-bold text-3xl hover:bg-white/8 transition-all active:scale-95"
             >
               単語一覧へ戻る
             </button>
             <button
               onClick={() => setPhase('setup')}
               className="
-                py-5 rounded-2xl font-black text-white text-xl
+                py-8 rounded-2xl font-black text-white text-3xl
                 bg-gradient-to-r from-violet-600 to-indigo-600
                 hover:from-violet-500 hover:to-indigo-500
                 transition-all duration-200 active:scale-[0.98]

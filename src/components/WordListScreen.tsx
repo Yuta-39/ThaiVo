@@ -423,10 +423,6 @@ const WordListScreen: React.FC<WordListScreenProps> = ({
                     key={pageNum}
                     onClick={() => {
                       setCurrentPage(pageNum);
-                      const mainElement = document.getElementById('word-list-main');
-                      if (mainElement) {
-                        mainElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
                     }}
                     className={`
                       flex flex-col items-center justify-center px-6 py-2.5 rounded-xl border transition-all duration-150 cursor-pointer select-none active:scale-95 min-w-[120px]
@@ -526,10 +522,6 @@ const WordListScreen: React.FC<WordListScreenProps> = ({
                         key={pageNum}
                         onClick={() => {
                           setCurrentPage(pageNum);
-                          const mainElement = document.getElementById('word-list-main');
-                          if (mainElement) {
-                            mainElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                          }
                         }}
                         className={`
                           flex flex-col items-center justify-center px-6 py-2.5 rounded-xl border transition-all duration-150 cursor-pointer select-none active:scale-95 min-w-[120px]
